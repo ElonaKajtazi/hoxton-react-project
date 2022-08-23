@@ -14,6 +14,10 @@ export function Form({
 }: Props) {
   const [showNextButton, setShowNextButton] = useState(false);
   const [showPrevioustButton, setShowPrevioustButton] = useState(false);
+  const [answer, setAnswer] = useState(
+    questions.results[currentQuestion].correct_answer
+  );
+  console.log(answer);
   const showButtonNext = () => {
     setShowNextButton(true);
   };
@@ -50,7 +54,8 @@ export function Form({
                 showButtonNext();
                 showButtonPrevious();
                 // let answer = event.target;
-                // const rightAnswer = event.target.question.value;
+                const rightAnswer = event.target.question.value;
+                console.log(rightAnswer)
 
                 // if (answer === rightAnswer) {
                 //   alert("Correct");
@@ -59,14 +64,14 @@ export function Form({
                 // }
               }}
             >
-              <input
+              <input onClick={(event) => {
+
+              }}
                 type="radio"
-                name={`Question${currentQuestion}`}
-                value={questions.results[
-                  currentQuestion
-                ].correct_answer.toLowerCase()}
+                name="question"
+                value={option.toLowerCase()}
               />
-              <span className="radio-value right">{option}</span>
+              <span className="radio-value">{option}</span>
             </label>
           ))}
 
