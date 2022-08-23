@@ -1,432 +1,126 @@
 {
   "results": [
     {
-      "category": "History",
-      "type": "multiple",
-      "difficulty": "hard",
-      "question": "When did the French Revolution begin?",
-      "correct_answer": "1789",
-      "incorrect_answers": ["1823", "1756", "1799"]
-    },
-    {
-      "category": "Entertainment: Video Games",
-      "type": "multiple",
-      "difficulty": "easy",
-      "question": "Who&#039;s the voice actor for Thrall in the Warcraft game series?",
-      "correct_answer": "Chris Metzen",
-      "incorrect_answers": ["Ben Affleck", "Jason Derulo", "Jim Carrey"]
-    },
-    {
-      "category": "Geography",
-      "type": "multiple",
-      "difficulty": "medium",
-      "question": "The Principality of Sealand is an unrecognized micronation off the coast of what country?",
-      "correct_answer": "The United Kingdom",
-      "incorrect_answers": ["Japan", "Austrailia", "Argentina"]
-    },
-    {
-      "category": "Entertainment: Video Games",
-      "type": "multiple",
-      "difficulty": "easy",
-      "question": "What is the most expensive weapon in Counter-Strike: Global Offensive?",
-      "correct_answer": "Scar-20/G3SG1",
-      "incorrect_answers": ["M4A1", "AWP", "R8 Revolver"]
-    },
-    {
-      "category": "Entertainment: Video Games",
-      "type": "boolean",
-      "difficulty": "easy",
-      "question": "The Mann Co. Store from Team Fortress 2 has the slogan &quot;We hire mercenaries and get in fights&quot;.",
-      "correct_answer": "False",
-      "incorrect_answers": ["True"]
-    },
-    {
-      "category": "Entertainment: Video Games",
-      "type": "boolean",
-      "difficulty": "hard",
-      "question": "Unturned originally started as a Roblox game.",
-      "correct_answer": "True",
-      "incorrect_answers": ["False"]
-    },
-    {
-      "category": "Entertainment: Video Games",
-      "type": "multiple",
-      "difficulty": "hard",
-      "question": "What was the world&#039;s first video game?",
-      "correct_answer": "Tennis for Two",
-      "incorrect_answers": ["Spacewar!", "Pong", "Space Travel"]
-    },
-    {
-      "category": "Entertainment: Video Games",
-      "type": "multiple",
-      "difficulty": "easy",
-      "question": "Which student in Yandere Simulator is known for asking irritating and stupid questions?",
-      "correct_answer": "Midori Gurin",
-      "incorrect_answers": ["Kokona Hruka", "Oka Ruto", "Pipi Osu"]
-    },
-    {
-      "category": "Entertainment: Video Games",
-      "type": "multiple",
-      "difficulty": "medium",
-      "question": "Who is the main character of &quot;Metal Gear Solid 3&quot;?",
-      "correct_answer": "Naked Snake",
-      "incorrect_answers": ["Solid Snake", "Liquid Snake", "Venom Snake"]
-    },
-    {
-      "category": "Science & Nature",
-      "type": "multiple",
-      "difficulty": "hard",
-      "question": "What is isobutylphenylpropanoic acid more commonly known as?",
-      "correct_answer": "Ibuprofen",
-      "incorrect_answers": ["Morphine", "Ketamine", "Aspirin"]
-    },
-    {
-      "category": "Entertainment: Japanese Anime & Manga",
-      "type": "multiple",
-      "difficulty": "easy",
-      "question": "In &quot;Inuyasha&quot;, what are the heros are looking to collect?",
-      "correct_answer": "Jewel Shards",
-      "incorrect_answers": ["Dragon Balls", "Rave Stones", "Sacred Stones"]
-    },
-    {
-      "category": "Entertainment: Music",
-      "type": "multiple",
-      "difficulty": "hard",
-      "question": "What is the British term for a 64th note?",
-      "correct_answer": "Hemidemisemiquaver",
-      "incorrect_answers": [
-        "Semihemidemisemiquaver",
-        "Semiquaver",
-        "Demisemiquaver"
-      ]
-    },
-    {
-      "category": "Entertainment: Video Games",
-      "type": "multiple",
-      "difficulty": "medium",
-      "question": "Which of the following Pok&eacute;mon games released first?",
-      "correct_answer": "Pok&eacute;mon Crystal",
-      "incorrect_answers": [
-        "Pok&eacute;mon Platinum",
-        "Pok&eacute;mon FireRed",
-        "Pok&eacute;mon Black"
-      ]
-    },
-    {
       "category": "General Knowledge",
-      "type": "multiple",
+      "id": "622a1c357cc59eab6f94fe31",
+      "correctAnswer": "Franc",
+      "incorrectAnswers": ["Peso", "Dollar", "Gira"],
+      "question": "What is the basic unit of currency for Equatorial Guinea?",
+      "tags": ["currency", "general_knowledge"],
+      "type": "Multiple Choice",
       "difficulty": "medium",
-      "question": "What is the romanized Japanese word for &quot;university&quot;?",
-      "correct_answer": "Daigaku",
-      "incorrect_answers": ["Toshokan", "Jimusho", "Shokudou"]
+      "regions": []
     },
     {
-      "category": "General Knowledge",
-      "type": "multiple",
+      "category": "Arts & Literature",
+      "id": "622a1c397cc59eab6f950ec6",
+      "correctAnswer": "Haruki Murakami",
+      "incorrectAnswers": ["Oscar Wilde", "Umberto Eco", "Søren Kierkegaard"],
+      "question": "Which author wrote 'The Elephant Vanishes'?",
+      "tags": ["literature", "arts_and_literature"],
+      "type": "Multiple Choice",
       "difficulty": "hard",
-      "question": "Disney&#039;s Haunted Mansion is home to a trio of Hitchhiking Ghosts. Which of these is NOT one of them?",
-      "correct_answer": "Harry",
-      "incorrect_answers": ["Gus", "Phineas", "Ezra"]
+      "regions": []
     },
     {
-      "category": "Science & Nature",
-      "type": "boolean",
-      "difficulty": "easy",
-      "question": "An atom contains a nucleus.",
-      "correct_answer": "True",
-      "incorrect_answers": ["False"]
-    },
-    {
-      "category": "History",
-      "type": "boolean",
+      "category": "Film & TV",
+      "id": "622a1c347cc59eab6f94fbd8",
+      "correctAnswer": "\"You motorboatin’ son of a b****!\"",
+      "incorrectAnswers": [
+        "\"I could do this all day\"",
+        "\"I’m the guy who does his job. You must be the other guy.\"",
+        "\"I'm gonna make him an offer he can't refuse.\""
+      ],
+      "question": "Which of these quotes is from the film 'Wedding Crashers'?",
+      "tags": ["quotes", "film", "film_and_tv"],
+      "type": "Multiple Choice",
       "difficulty": "medium",
-      "question": "If you grab the bladed end of a longsword in a specific way, you will not cut yourself.",
-      "correct_answer": "True",
-      "incorrect_answers": ["False"]
-    },
-    {
-      "category": "Science: Computers",
-      "type": "boolean",
-      "difficulty": "medium",
-      "question": "AMD created the first consumer 64-bit processor.",
-      "correct_answer": "True",
-      "incorrect_answers": ["False"]
+      "regions": []
     },
     {
       "category": "Geography",
-      "type": "boolean",
-      "difficulty": "medium",
-      "question": "There exists an island named &quot;Java&quot;.",
-      "correct_answer": "True",
-      "incorrect_answers": ["False"]
-    },
-    {
-      "category": "Science: Computers",
-      "type": "multiple",
-      "difficulty": "medium",
-      "question": "In CSS, which of these values CANNOT be used with the &quot;position&quot; property?",
-      "correct_answer": "center",
-      "incorrect_answers": ["static", "absolute", "relative"]
-    },
-    {
-      "category": "General Knowledge",
-      "type": "boolean",
-      "difficulty": "easy",
-      "question": "One of Donald Trump&#039;s 2016 Presidential Campaign promises was to build a border wall between the United States and Mexico.",
-      "correct_answer": "True",
-      "incorrect_answers": ["False"]
-    },
-    {
-      "category": "Entertainment: Film",
-      "type": "multiple",
-      "difficulty": "medium",
-      "question": "In the 1999 movie Fight Club, which of these is not a rule of the &quot;fight club&quot;?",
-      "correct_answer": "Always wear a shirt",
-      "incorrect_answers": [
-        "You do not talk about FIGHT CLUB",
-        "Only two guys to a fight",
-        "Fights will go on as long as they have to"
-      ]
-    },
-    {
-      "category": "Science: Computers",
-      "type": "multiple",
+      "id": "623735d1cfe13103f55eb570",
+      "correctAnswer": "Sierra Leone",
+      "incorrectAnswers": ["Slovenia", "Slovakia", "Sri Lanka"],
+      "question": "Which region of the world uses '.sl' at the end of its web addresses?",
+      "tags": ["geography"],
+      "type": "Multiple Choice",
       "difficulty": "hard",
-      "question": "Who is the original author of the realtime physics engine called PhysX?",
-      "correct_answer": "NovodeX",
-      "incorrect_answers": ["Ageia", "Nvidia", "AMD"]
+      "regions": []
     },
     {
-      "category": "Science: Computers",
-      "type": "multiple",
+      "category": "Food & Drink",
+      "id": "622a1c3b7cc59eab6f951605",
+      "correctAnswer": "Tomato ",
+      "incorrectAnswers": ["Onion", "Garlic", "Mango"],
+      "question": "'love apple' is a nickname for which food?",
+      "tags": ["food_and_drink"],
+      "type": "Multiple Choice",
       "difficulty": "medium",
-      "question": ".rs is the top-level domain for what country?",
-      "correct_answer": "Serbia",
-      "incorrect_answers": ["Romania", "Russia", "Rwanda"]
+      "regions": []
     },
     {
-      "category": "Entertainment: Music",
-      "type": "multiple",
-      "difficulty": "medium",
-      "question": "What is the first track on Kanye West&#039;s 808s &amp; Heartbreak?",
-      "correct_answer": "Say You Will",
-      "incorrect_answers": [
-        "Welcome to Heartbreak",
-        "Street Lights",
-        "Heartless"
-      ]
-    },
-    {
-      "category": "Science: Computers",
-      "type": "multiple",
+      "category": "Music",
+      "id": "622a1c397cc59eab6f950c3a",
+      "correctAnswer": "Coldplay",
+      "incorrectAnswers": ["Level 42", "Deep Purple", "Feeder"],
+      "question": "Which British band released the studio album 'A Head Full of Dreams'?",
+      "tags": ["music"],
+      "type": "Multiple Choice",
       "difficulty": "hard",
-      "question": "Which data structure does FILO apply to?",
-      "correct_answer": "Stack",
-      "incorrect_answers": ["Queue", "Heap", "Tree"]
+      "regions": []
     },
     {
-      "category": "Entertainment: Video Games",
-      "type": "multiple",
+      "category": "Science",
+      "id": "622a1c377cc59eab6f9505ad",
+      "correctAnswer": "Medicating patients during surgery",
+      "incorrectAnswers": ["Algae", "Karyotypes", "Spiders"],
+      "question": "What is Anesthesiology the study of?",
+      "tags": ["science", "words"],
+      "type": "Multiple Choice",
       "difficulty": "medium",
-      "question": "In what year were screenshots added to Steam?",
-      "correct_answer": "2011",
-      "incorrect_answers": ["2010", "2008", "2009"]
+      "regions": []
+    },
+    {
+      "category": "Film & TV",
+      "id": "622a1c367cc59eab6f9501ee",
+      "correctAnswer": "David Yates",
+      "incorrectAnswers": [
+        "Steven Spielberg",
+        "Woody Allen",
+        "Martin Scorsese"
+      ],
+      "question": "Which director directed Harry Potter and the Deathly Hallows – Part 2?",
+      "tags": ["harry_potter", "film", "film_and_tv"],
+      "type": "Multiple Choice",
+      "difficulty": "hard",
+      "regions": []
     },
     {
       "category": "History",
-      "type": "boolean",
-      "difficulty": "easy",
-      "question": "In World War ll, Great Britian used inflatable tanks on the ports of Great Britain to divert Hitler away from Normandy/D-day landing.",
-      "correct_answer": "True",
-      "incorrect_answers": ["False"]
-    },
-    {
-      "category": "Animals",
-      "type": "multiple",
+      "id": "622a1c3c7cc59eab6f95181f",
+      "correctAnswer": "Abraham Lincoln",
+      "incorrectAnswers": [
+        "John F. Kennedy",
+        "James Garfield",
+        "William McKinley"
+      ],
+      "question": "Which American president was assassinated in a theatre?",
+      "tags": ["presidents", "usa", "assassinations", "events", "history"],
+      "type": "Multiple Choice",
       "difficulty": "medium",
-      "question": "What dog bread is one of the oldest breeds of dog and has flourished since before 400 BCE.",
-      "correct_answer": "Pugs",
-      "incorrect_answers": ["Bulldogs", "Boxers", "Chihuahua"]
-    },
-    {
-      "category": "Entertainment: Video Games",
-      "type": "multiple",
-      "difficulty": "medium",
-      "question": "Who is the main protagonist of &quot;Ace Combat Zero: The Belkan War&quot;?",
-      "correct_answer": "Cipher",
-      "incorrect_answers": ["Mobius 1", "Blaze", "Pixy"]
-    },
-    {
-      "category": "General Knowledge",
-      "type": "multiple",
-      "difficulty": "medium",
-      "question": "Apple co-founder Steve Jobs died from complications of which form of cancer?",
-      "correct_answer": "Pancreatic",
-      "incorrect_answers": ["Bone", "Liver", "Stomach"]
-    },
-    {
-      "category": "Science: Computers",
-      "type": "multiple",
-      "difficulty": "hard",
-      "question": "Dutch computer scientist Mark Overmars is known for creating which game development engine?",
-      "correct_answer": "Game Maker",
-      "incorrect_answers": ["Stencyl", "Construct", "Torque 2D"]
-    },
-    {
-      "category": "Animals",
-      "type": "boolean",
-      "difficulty": "medium",
-      "question": "Finnish Lapphund dogs were used for herding reindeer.",
-      "correct_answer": "True",
-      "incorrect_answers": ["False"]
-    },
-    {
-      "category": "Science & Nature",
-      "type": "multiple",
-      "difficulty": "hard",
-      "question": "Where is the Gluteus Maximus muscle located?",
-      "correct_answer": "Butt",
-      "incorrect_answers": ["Arm", "Head", "Torso"]
-    },
-    {
-      "category": "Entertainment: Video Games",
-      "type": "multiple",
-      "difficulty": "medium",
-      "question": "How many controllers could a Nintendo GameCube have plugged in at one time?",
-      "correct_answer": "4",
-      "incorrect_answers": ["8", "6", "2"]
-    },
-    {
-      "category": "Entertainment: Cartoon & Animations",
-      "type": "multiple",
-      "difficulty": "medium",
-      "question": "How many episodes were in season five of Samurai Jack?",
-      "correct_answer": "10",
-      "incorrect_answers": ["12", "11", "13"]
-    },
-    {
-      "category": "Entertainment: Board Games",
-      "type": "multiple",
-      "difficulty": "hard",
-      "question": "Some of the &quot;Fallen Empires&quot; cards from &quot;Magic: The Gathering&quot; were misprinted on the backs of which other card game?",
-      "correct_answer": "Wyvern",
-      "incorrect_answers": ["Pokemon", "Dominion", "Yu-Gi-Oh"]
-    },
-    {
-      "category": "Entertainment: Books",
-      "type": "multiple",
-      "difficulty": "medium",
-      "question": "In Alice in Wonderland, what is the name of Alice&#039;s kitten?",
-      "correct_answer": "Dinah",
-      "incorrect_answers": ["Oscar", "Heath", "Smokey"]
-    },
-    {
-      "category": "Entertainment: Film",
-      "type": "multiple",
-      "difficulty": "medium",
-      "question": "In Mulan (1998), who is the leader of the Huns?",
-      "correct_answer": "Shan Yu",
-      "incorrect_answers": ["Chien-Po", "Li Shang", "Fa Zhou"]
+      "regions": []
     },
     {
       "category": "History",
-      "type": "boolean",
-      "difficulty": "easy",
-      "question": "The United States of America was the first country to launch a man into space.",
-      "correct_answer": "False",
-      "incorrect_answers": ["True"]
-    },
-    {
-      "category": "History",
-      "type": "boolean",
-      "difficulty": "easy",
-      "question": "Thomas Crapper was a plumber who invented the flushing toilet.",
-      "correct_answer": "False",
-      "incorrect_answers": ["True"]
-    },
-    {
-      "category": "Entertainment: Film",
-      "type": "multiple",
-      "difficulty": "easy",
-      "question": "What is the name of the fictional retro-mod band starring Austin Powers as the lead vocalist?",
-      "correct_answer": "Ming Tea",
-      "incorrect_answers": ["Cough Fi", "Spear Mint", "Mister E"]
-    },
-    {
-      "category": "Entertainment: Video Games",
-      "type": "multiple",
-      "difficulty": "hard",
-      "question": "The creation of the  Entertainment Software Ratings Board (ESRB) is often associated with Mortal Kombat and what FMV video game?",
-      "correct_answer": "Night Trap",
-      "incorrect_answers": [
-        "Sewer Shark",
-        "The Daedalus Encounter",
-        "Corpse Killer"
-      ]
-    },
-    {
-      "category": "Entertainment: Cartoon & Animations",
-      "type": "multiple",
+      "id": "622a1c347cc59eab6f94f9c9",
+      "correctAnswer": "Ronald Reagan",
+      "incorrectAnswers": ["John Quincy Adams", "Gerald Ford", "James Polk"],
+      "question": "Who was the 40th president of the USA, in term during the period 1981–1989?",
+      "tags": ["usa", "presidents", "leaders", "history"],
+      "type": "Multiple Choice",
       "difficulty": "medium",
-      "question": "In the show &quot;Fat Albert and the Cosby Kids&quot;, what is the name of the characters&#039; fictional gang?",
-      "correct_answer": "The Junkyard Gang",
-      "incorrect_answers": [
-        "The Trash Troupe",
-        "The Scrapyard Seven",
-        "The Rotten Posse"
-      ]
-    },
-    {
-      "category": "Geography",
-      "type": "multiple",
-      "difficulty": "medium",
-      "question": "How many time zones are in Russia?",
-      "correct_answer": "11",
-      "incorrect_answers": ["8", "5", "2"]
-    },
-    {
-      "category": "Geography",
-      "type": "multiple",
-      "difficulty": "hard",
-      "question": "What is the capital of Wisconsin, USA?",
-      "correct_answer": "Madison",
-      "incorrect_answers": ["Milwaukee", "Wisconsin Dells", "Green Bay"]
-    },
-    {
-      "category": "History",
-      "type": "multiple",
-      "difficulty": "hard",
-      "question": "Which is the hull NO. of the Fletcher class destroyer Fletcher?",
-      "correct_answer": "DD-445",
-      "incorrect_answers": ["DD-992", "DD-444", "DD-446"]
-    },
-    {
-      "category": "Geography",
-      "type": "multiple",
-      "difficulty": "hard",
-      "question": "Which is not a country in Africa?",
-      "correct_answer": "Guyana",
-      "incorrect_answers": ["Senegal", "Liberia", "Somalia"]
-    },
-    {
-      "category": "Entertainment: Video Games",
-      "type": "multiple",
-      "difficulty": "easy",
-      "question": "In Divinity: Original Sin II, what is the name of the skeletal origin character?",
-      "correct_answer": "Fane",
-      "incorrect_answers": [
-        "Lohse",
-        "The Red Prince",
-        "There are no skeletal origin characters"
-      ]
-    },
-    {
-      "category": "Science: Mathematics",
-      "type": "multiple",
-      "difficulty": "medium",
-      "question": "In the complex plane, multiplying a given function by i rotates it anti-clockwise by how many degrees?",
-      "correct_answer": "90",
-      "incorrect_answers": ["180", "270", "0"]
+      "regions": []
     }
   ],
   "categories": [
