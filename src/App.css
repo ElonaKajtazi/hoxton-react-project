@@ -19,7 +19,7 @@ body {
 
 .question {
   font-size: medium;
-  padding: 1rem;  
+  padding: 1rem;
 }
 .options {
   display: grid;
@@ -48,26 +48,32 @@ ul {
   /* align-content: center; */
   /* padding: 1rem; */
 }
-/* .radio-value {
-  background-color: rgb(218, 192, 255);
-  height: 2rem;
-
-  display: grid;
-  padding: 0.5rem;
-  place-items: center;
-}
-input[type="radio"] {
-  display: none;
-}
-input[type="radio"]:checked + .radio-value {
-  background-color: rgba(255, 0, 0, 0.849)
-}
-input[type="radio"]:checked +.radio-value.right{
-  background-color: aquamarine;
-}  */
 .incorrect {
   background-color: rgba(220, 20, 60, 0.562);
 }
 .correct {
   background-color: greenyellow;
 }
+
+.radio-value {
+  /* background-color: rgb(218, 192, 255); */
+  height: 2rem;
+
+  display: grid;
+
+  width: 100%;
+  place-items: start;
+  align-items: center;
+  padding: 0.5rem;
+  border-radius: 3px;
+  
+}
+input[type="radio"] {
+  display: none;
+}
+input[type="radio"]:checked + .radio-value {
+  background-color: rgba(128, 128, 128, 0.715)
+}
+/* input[type="radio"]:checked + .radio-value.right {
+  background-color: aquamarine;
+} */

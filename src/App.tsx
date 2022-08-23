@@ -21,13 +21,13 @@ type Question = {
   correct_answer: string;
   incorrect_answers: string[];
 };
-type Questions = {
+export type QuestionsType = {
   response_code: number;
   results: Question[];
 };
 function App() {
-  const [questions, setQuestions] = useState<Questions[]>([]);
-  const [answer, setAnswer] = useState("elona");
+  const [questions, setQuestions] = useState<QuestionsType[]>([]);
+
   const [currentQuestion, setCurrentQuestion] = useState(0);
   useEffect(() => {
     fetch("https://opentdb.com/api.php?amount=10")
@@ -48,7 +48,12 @@ function App() {
     <div className="App">
       {/* <h1>Let's start this project...</h1> */}
 
-      <Form questions={questions} currentQuestion={currentQuestion} answer={answer} setCurrentQuestion={setCurrentQuestion} />
+      <Form
+        questions={questions}
+        currentQuestion={currentQuestion}
+
+        setCurrentQuestion={setCurrentQuestion}
+      />
     </div>
   );
 }

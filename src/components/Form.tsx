@@ -1,11 +1,17 @@
 import { useState } from "react";
-
+import { QuestionsType } from "../App";
+type Props = {
+  questions: QuestionsType[];
+  currentQuestion: number;
+  // answer: string | null;
+  setCurrentQuestion: React.Dispatch<React.SetStateAction<number>>;
+};
 export function Form({
   questions,
   currentQuestion,
-  answer,
+  // answer,
   setCurrentQuestion,
-}) {
+}: Props) {
   const [showNextButton, setShowNextButton] = useState(false);
   const [showPrevioustButton, setShowPrevioustButton] = useState(false);
   const showButtonNext = () => {
@@ -21,96 +27,75 @@ export function Form({
   const previousQuestion = () => {
     setCurrentQuestion(currentQuestion - 1);
   };
-  console.log(currentQuestion);
+  // options: shuffle(data.incorrect_answers.concat(data.correct_answer))
+
+  const options = questions.results[currentQuestion].correct_answer
+    .split()
+    .concat(questions.results[currentQuestion].incorrect_answers);
+  console.log(options);
   return (
     <>
-      <div
-        onSubmit={(event) => {
-          event.preventDefault();
-
-          const rightAnswer = event.target.question.value;
-
-          if (answer === rightAnswer) {
-            alert("Correct");
-          } else {
-            alert("Incorrect");
-          }
-          // console.log(rightAnswer)
-          // console.log(answer)
-        }}
-      >
-        {" "}
-        {/* {questions.results.map((question) => ( */}
-        <>
-          <h2 className="question">
-            {" "}
-            {questions.results[currentQuestion].question}
-          </h2>
-          <ul className="options">
-            <li
+      {" "}
+      {/* {questions.results.map((question) => ( */}
+      <>
+        <h2 className="question">
+          {" "}
+          {questions.results[currentQuestion].question}
+        </h2>
+        <form className="options">
+          {options.map((option) => (
+            <label
               className="option"
               onClick={(event) => {
-                event.currentTarget.classList.add("correct");
                 showButtonNext();
                 showButtonPrevious();
-              }}
-            >
-              {" "}
-              {questions.results[currentQuestion].correct_answer}
-            </li>
-            {/* <label
-              onClick={() => {
-                showButtonsSection();
+                // let answer = event.target;
+                // const rightAnswer = event.target.question.value;
+
+                // if (answer === rightAnswer) {
+                //   alert("Correct");
+                // } else {
+                //   alert("Incorrect");
+                // }
               }}
             >
               <input
-                className="option"
                 type="radio"
-                name="question"
+                name={`Question${currentQuestion}`}
                 value={questions.results[
                   currentQuestion
                 ].correct_answer.toLowerCase()}
               />
-              <span className="radio-value right">
-                {questions.results[currentQuestion].correct_answer}
-              </span>
-            </label> */}
-            {questions.results[currentQuestion].incorrect_answers.map(
-              (incorrectAnswer) => (
-                <>
-                  <li
-                    className="option"
-                    onClick={(event) => {
-                      event.currentTarget.classList.add("incorrect");
-                      showButtonNext();
-                      showButtonPrevious();
-                    }}
-                  >
-                    {incorrectAnswer}
-                  </li>
-                  {/* <label
-                    onClick={() => {
-                      showButtonsSection();
-                    }}
-                  >
-                    <input
-                      className="option"
-                      type="radio"
-                      name="question"
-                      value={incorrectAnswer.toLowerCase()}
-                    />
-                    <span className="radio-value">{incorrectAnswer}</span>
-                  </label> */}
-                </>
-              )
-            )}
-          </ul>
-        </>
-        {/* ))} */}
-        {/* <button>SUBMIT</button> */}
-      </div>
+              <span className="radio-value right">{option}</span>
+            </label>
+          ))}
+
+          {/* {questions.results[currentQuestion].incorrect_answers.map(
+            (incorrectAnswer) => (
+              <>
+                <label
+                  className="option"
+                  onClick={() => {
+                    showButtonNext();
+                    showButtonPrevious();
+                  }}
+                >
+                  <input
+                    type="radio"
+                    name={`Question${currentQuestion}`}
+                    value={incorrectAnswer.toLowerCase()}
+                  />
+                  <span className="radio-value">{incorrectAnswer}</span>
+                </label>
+              </>
+            )
+          )} */}
+        </form>
+      </>
+      {/* ))} */}
+      {/* <button>SUBMIT</button> */}
       <>
-        {showPrevioustButton && currentQuestion > 0? (
+        {showPrevioustButton && currentQuestion > 0 ? (
           <button
             className="previous-btn"
             onClick={() => {
