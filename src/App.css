@@ -1,4 +1,4 @@
-*{
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
@@ -11,26 +11,47 @@ body {
 }
 .App {
   text-align: center;
-  background-color: #61dafb;
-  padding: 1rem;
+  background-color: rgb(232, 230, 230);
+  width: 80%;
+  padding: 2rem;
+  border-radius: 10px;
 }
 
-
 .question {
-font-size: medium;
-padding: 1rem;
+  font-size: medium;
+  padding: 1rem;  
 }
 .options {
   display: grid;
   grid-auto-flow: row;
   gap: 0.5rem;
-  padding: 0rem 1rem ; 
-  place-content: start;
+  padding: 1rem;
+  /* place-content: start; */
+  width: 100%;
+  /* background-color: red; */
+
+  /* background-color: red; */
 }
-.radio-value {
+ul {
+  list-style: none;
+}
+.option {
+  /* background-color: pink; */
+  padding: 0.5rem;
+  width: auto;
+  /* height: 35px; */
+  display: grid;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.195);
+
+  place-items: start;
+  /* border-radius: 5px; */
+  /* align-content: center; */
+  /* padding: 1rem; */
+}
+/* .radio-value {
   background-color: rgb(218, 192, 255);
   height: 2rem;
-  /* width: 2rem; */
+
   display: grid;
   padding: 0.5rem;
   place-items: center;
@@ -43,4 +64,10 @@ input[type="radio"]:checked + .radio-value {
 }
 input[type="radio"]:checked +.radio-value.right{
   background-color: aquamarine;
+}  */
+.incorrect {
+  background-color: rgba(220, 20, 60, 0.562);
+}
+.correct {
+  background-color: greenyellow;
 }

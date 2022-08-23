@@ -6,16 +6,25 @@ export function Form({
   answer,
   setCurrentQuestion,
 }) {
-  const [showButtons, setShowButtons] = useState(false);
-  const showButtonsSection = () => {
-    setShowButtons(true);
+  const [showNextButton, setShowNextButton] = useState(false);
+  const [showPrevioustButton, setShowPrevioustButton] = useState(false);
+  const showButtonNext = () => {
+    setShowNextButton(true);
+  };
+  const showButtonPrevious = () => {
+    if (currentQuestion === 1) setShowPrevioustButton(true);
+    // if (currentQuestion >= questions.results.length ) return
   };
   const nextQuestion = () => {
     setCurrentQuestion(currentQuestion + 1);
   };
+  const previousQuestion = () => {
+    setCurrentQuestion(currentQuestion - 1);
+  };
+  console.log(currentQuestion);
   return (
     <>
-      <form
+      <div
         onSubmit={(event) => {
           event.preventDefault();
 
@@ -40,8 +49,10 @@ export function Form({
           <ul className="options">
             <li
               className="option"
-              onClick={() => {
-                showButtonsSection();
+              onClick={(event) => {
+                event.currentTarget.classList.add("correct");
+                showButtonNext();
+                showButtonPrevious();
               }}
             >
               {" "}
@@ -69,8 +80,10 @@ export function Form({
                 <>
                   <li
                     className="option"
-                    onClick={() => {
-                      showButtonsSection();
+                    onClick={(event) => {
+                      event.currentTarget.classList.add("incorrect");
+                      showButtonNext();
+                      showButtonPrevious();
                     }}
                   >
                     {incorrectAnswer}
@@ -94,19 +107,30 @@ export function Form({
           </ul>
         </>
         {/* ))} */}
-        <button>SUBMIT</button>
-      </form>
-      {showButtons ? (
-        <div className="buttons">
+        {/* <button>SUBMIT</button> */}
+      </div>
+      <>
+        {showPrevioustButton && currentQuestion > 0? (
           <button
+            className="previous-btn"
+            onClick={() => {
+              previousQuestion();
+            }}
+          >
+            Prevous
+          </button>
+        ) : null}
+        {showNextButton && currentQuestion + 1 < questions.results.length ? (
+          <button
+            className="next-btn"
             onClick={() => {
               nextQuestion();
             }}
           >
             NEXT
           </button>
-        </div>
-      ) : null}
+        ) : null}
+      </>
     </>
   );
 }
