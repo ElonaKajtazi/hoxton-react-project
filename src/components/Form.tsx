@@ -37,8 +37,17 @@ export function Form({
             {" "}
             {questions.results[currentQuestion].question}
           </h2>
-          <div className="options">
-            <label
+          <ul className="options">
+            <li
+              className="option"
+              onClick={() => {
+                showButtonsSection();
+              }}
+            >
+              {" "}
+              {questions.results[currentQuestion].correct_answer}
+            </li>
+            {/* <label
               onClick={() => {
                 showButtonsSection();
               }}
@@ -54,11 +63,19 @@ export function Form({
               <span className="radio-value right">
                 {questions.results[currentQuestion].correct_answer}
               </span>
-            </label>
+            </label> */}
             {questions.results[currentQuestion].incorrect_answers.map(
               (incorrectAnswer) => (
                 <>
-                  <label
+                  <li
+                    className="option"
+                    onClick={() => {
+                      showButtonsSection();
+                    }}
+                  >
+                    {incorrectAnswer}
+                  </li>
+                  {/* <label
                     onClick={() => {
                       showButtonsSection();
                     }}
@@ -70,11 +87,11 @@ export function Form({
                       value={incorrectAnswer.toLowerCase()}
                     />
                     <span className="radio-value">{incorrectAnswer}</span>
-                  </label>
+                  </label> */}
                 </>
               )
             )}
-          </div>
+          </ul>
         </>
         {/* ))} */}
         <button>SUBMIT</button>
