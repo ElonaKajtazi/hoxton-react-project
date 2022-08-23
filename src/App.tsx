@@ -1,33 +1,34 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 // let Question = {
-//   category: "General Knowledge",
-//   id: "622a1c357cc59eab6f94fe31",
-//   correctAnswer: "Franc",
-//   incorrectAnswers: ["Peso", "Dollar", "Gira"],
-//   question: "What is the basic unit of currency for Equatorial Guinea?",
-//   tags: ["currency", "general_knowledge"],
-//   type: "Multiple Choice",
-//   difficulty: "medium",
-//   regions: [],
-// };
+//   "category": "Entertainment: Video Games",
+//   "type": "multiple",
+//   "difficulty": "medium",
+//   "question": "What is the main character of Metal Gear Solid 2?",
+//   "correct_answer": "Raiden",
+//   "incorrect_answers": [
+//     "Solidus Snake",
+//     "Big Boss",
+//     "Venom Snake"
+//   ]
+// }
 type Question = {
   category: string;
-  id: string;
-  correctAnswer: string;
-  incorrectAnswers: string[];
-  question: string;
-  tags: string[];
   type: string;
   difficulty: string;
-  regions: never[];
+  question: string;
+  correct_answer: string;
+  incorrect_answers: string[];
 };
-type Questions = Question[];
+type Questions = {
+  response_code: number;
+  results: Question[];
+};
 function App() {
-  const [questions, setQuestions] = useState<Question[]>([]);
+  const [questions, setQuestions] = useState([]);
   const [answer, setAnswer] = useState("franc");
   useEffect(() => {
-    fetch("http://localhost:5000/results")
+    fetch("https://opentdb.com/api.php?amount=10")
       .then((res) => res.json())
       .then((resultsFromServer) => {
         setQuestions(resultsFromServer);
@@ -36,34 +37,37 @@ function App() {
   }, []);
   // console.log(questions[0].question);
   // console.log(questions[0].correctAnswer);
-
+  {
+    if (questions.length === 0) return <h1>Loading...</h1>;
+  }
   return (
     <div className="App">
       {/* <h1>Let's start this project...</h1> */}
+
       <form
-        onSubmit={(event) => {
-          event.preventDefault();
-          const rightAnswer = event.target.question.value;
-          if (answer === rightAnswer) {
-            alert("Correct");
-          } else {
-            alert("Incorrect");
-          }
-          // console.log(rightAnswer)
-          // console.log(answer)
-        }}
+      // onSubmit={(event) => {
+      //   event.preventDefault();
+      //   const rightAnswer = event.target.question.value;
+      //   if (answer === rightAnswer) {
+      //     alert("Correct");
+      //   } else {
+      //     alert("Incorrect");
+      //   }
+      //   // console.log(rightAnswer)
+      //   // console.log(answer)
+      // }}
       >
-        <h2 className="question"> {questions[0].question}</h2>
+        <h2 className="question"> {questions.results[0].question}</h2>
         <div className="options">
           <label>
             <input
               className="option"
               type="radio"
               name="question"
-              value={questions[0].correctAnswer.toLowerCase()}
+              value={questions.results[0].correct_answer.toLowerCase()}
             />
             <span className="radio-value right">
-              {questions[0].correctAnswer}
+              {questions.results[0].correct_answer}
             </span>
           </label>
           <label>
@@ -71,11 +75,11 @@ function App() {
               className="option"
               type="radio"
               name="question"
-              value={questions[0].incorrectAnswers[0].toLowerCase()}
+              value={questions.results[0].incorrect_answers[0].toLowerCase()}
             />
             <span className="radio-value">
               {" "}
-              {questions[0].incorrectAnswers[0]}
+              {questions.results[0].incorrect_answers[0]}
             </span>
           </label>
           <label>
@@ -83,11 +87,11 @@ function App() {
               className="option"
               type="radio"
               name="question"
-              value={questions[0].incorrectAnswers[1].toLowerCase()}
+              value={questions.results[0].incorrect_answers[1].toLowerCase()}
             />
             <span className="radio-value">
               {" "}
-              {questions[0].incorrectAnswers[1]}
+              {questions.results[0].incorrect_answers[1]}
             </span>
           </label>
           <label>
@@ -95,14 +99,13 @@ function App() {
               className="option"
               type="radio"
               name="question"
-              value={questions[0].incorrectAnswers[2].toLowerCase()}
+              value={questions.results[0].incorrect_answers[2].toLowerCase()}
             />
             <span className="radio-value">
               {" "}
-              {questions[0].incorrectAnswers[2]}
+              {questions.results[0].incorrect_answers[2]}
             </span>
           </label>
-       
         </div>
 
         <button>SUBMIT</button>
