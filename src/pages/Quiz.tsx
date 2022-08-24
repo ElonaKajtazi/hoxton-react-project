@@ -6,27 +6,26 @@ import { Question } from "../components/Question";
 type Props = {
   questions: QuestionsType[];
   currentQuestion: number;
-  // answer: string | null;
   setCurrentQuestion: React.Dispatch<React.SetStateAction<number>>;
 };
 export function Quiz({
   questions,
   currentQuestion,
-  // answer,
   setCurrentQuestion,
 }: Props) {
   const [showNextButton, setShowNextButton] = useState(false);
   const [showPrevioustButton, setShowPrevioustButton] = useState(false);
+
   const [answer, setAnswer] = useState(
+    //@ts-ignore
     questions.results[currentQuestion].correct_answer
   );
-  // console.log(answer);
+
   const showButtonNext = () => {
     setShowNextButton(true);
   };
   const showButtonPrevious = () => {
     if (currentQuestion === 1) setShowPrevioustButton(true);
-    // if (currentQuestion >= questions.results.length ) return
   };
   const nextQuestion = () => {
     setCurrentQuestion(currentQuestion + 1);
@@ -34,18 +33,15 @@ export function Quiz({
   const previousQuestion = () => {
     setCurrentQuestion(currentQuestion - 1);
   };
-  // options: shuffle(data.incorrect_answers.concat(data.correct_answer))
 
+  //@ts-ignore
   const options = questions.results[currentQuestion].correct_answer
-    .split()
+    .split() //@ts-ignore
     .concat(questions.results[currentQuestion].incorrect_answers);
   const shuffledOptions = options.sort(() => Math.random() - 0.5);
-  console.log(shuffledOptions);
-  // console.log(options);
+
   return (
     <>
-      {" "}
-      {/* {questions.results.map((question) => ( */}
       <Question questions={questions} currentQuestion={currentQuestion} />
       <Form
         shuffledOptions={shuffledOptions}

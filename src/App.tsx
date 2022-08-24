@@ -37,17 +37,12 @@ function App() {
         console.log(resultsFromServer);
       });
   }, []);
-
-  // console.log(questions[0].question);
-  // console.log(questions[0].correctAnswer);
   {
     if (questions.length === 0) return <h1>Loading...</h1>;
   }
 
   return (
     <div className="App">
-      {/* <h1>Let's start this project...</h1> */}
-
       <Quiz
         questions={questions}
         currentQuestion={currentQuestion}

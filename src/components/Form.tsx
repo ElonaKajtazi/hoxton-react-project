@@ -1,27 +1,31 @@
+import { QuestionsType } from "../App";
+
+type Props = {
+  shuffledOptions: any;
+  showButtonNext: () => void;
+  showButtonPrevious: () => void;
+  questions: QuestionsType[];
+  currentQuestion: number;
+};
 export function Form({
   shuffledOptions,
   showButtonNext,
   showButtonPrevious,
   questions,
   currentQuestion,
-}) {
+}: Props) {
   return (
     <form className="options">
+      {/* @ts-ignore */}
       {shuffledOptions.map((option) => (
         <label
           className="option"
           onClick={(event) => {
             showButtonNext();
             showButtonPrevious();
-            // let answer = event.target;
+            //@ts-ignore
             const rightAnswer = event.target.question.value;
             console.log(rightAnswer);
-
-            // if (answer === rightAnswer) {
-            //   alert("Correct");
-            // } else {
-            //   alert("Incorrect");
-            // }
           }}
         >
           <input
@@ -32,6 +36,7 @@ export function Form({
           />
           <span
             className={
+              //@ts-ignore
               option === questions.results[currentQuestion].correct_answer
                 ? "radio-value right"
                 : "radio-value"
@@ -41,27 +46,6 @@ export function Form({
           </span>
         </label>
       ))}
-
-      {/* {questions.results[currentQuestion].incorrect_answers.map(
-            (incorrectAnswer) => (
-              <>
-                <label
-                  className="option"
-                  onClick={() => {
-                    showButtonNext();
-                    showButtonPrevious();
-                  }}
-                >
-                  <input
-                    type="radio"
-                    name={`Question${currentQuestion}`}
-                    value={incorrectAnswer.toLowerCase()}
-                  />
-                  <span className="radio-value">{incorrectAnswer}</span>
-                </label>
-              </>
-            )
-          )} */}
     </form>
   );
 }
