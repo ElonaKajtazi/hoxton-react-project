@@ -72,8 +72,8 @@ input[type="radio"] {
   display: none;
 }
 input[type="radio"]:checked + .radio-value {
-  background-color: rgba(128, 128, 128, 0.715)
+  background-color: rgba(205, 44, 44, 0.715)
 }
-/* input[type="radio"]:checked + .radio-value.right {
+input[type="radio"]:checked + .radio-value.right {
   background-color: aquamarine;
-} */
+}

@@ -17,7 +17,7 @@ export function Form({
   const [answer, setAnswer] = useState(
     questions.results[currentQuestion].correct_answer
   );
-  console.log(answer);
+  // console.log(answer);
   const showButtonNext = () => {
     setShowNextButton(true);
   };
@@ -36,7 +36,9 @@ export function Form({
   const options = questions.results[currentQuestion].correct_answer
     .split()
     .concat(questions.results[currentQuestion].incorrect_answers);
-  console.log(options);
+    const shuffledOptions = options.sort(() =>Math.random() - 0.5)
+    console.log(shuffledOptions)
+  // console.log(options);
   return (
     <>
       {" "}
@@ -47,7 +49,7 @@ export function Form({
           {questions.results[currentQuestion].question}
         </h2>
         <form className="options">
-          {options.map((option) => (
+          {shuffledOptions.map((option) => (
             <label
               className="option"
               onClick={(event) => {
@@ -55,7 +57,7 @@ export function Form({
                 showButtonPrevious();
                 // let answer = event.target;
                 const rightAnswer = event.target.question.value;
-                console.log(rightAnswer)
+                console.log(rightAnswer);
 
                 // if (answer === rightAnswer) {
                 //   alert("Correct");
@@ -64,14 +66,21 @@ export function Form({
                 // }
               }}
             >
-              <input onClick={(event) => {
-
-              }}
+              <input
+                onClick={(event) => {}}
                 type="radio"
                 name="question"
                 value={option.toLowerCase()}
               />
-              <span className="radio-value">{option}</span>
+              <span
+                className={
+                  option === questions.results[currentQuestion].correct_answer
+                    ? "radio-value right"
+                    : "radio-value"
+                }
+              >
+                {option}
+              </span>
             </label>
           ))}
 
