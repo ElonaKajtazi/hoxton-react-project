@@ -41,23 +41,25 @@ export function Quiz({
   const shuffledOptions = options.sort(() => Math.random() - 0.5);
 
   return (
-    <div className="quiz">
-      <Question questions={questions} currentQuestion={currentQuestion} />
-      <Form
-        shuffledOptions={shuffledOptions}
-        showButtonNext={showButtonNext}
-        showButtonPrevious={showButtonPrevious}
-        questions={questions}
-        currentQuestion={currentQuestion}
-      />
-      <Buttons
-        showPrevioustButton={showPrevioustButton}
-        currentQuestion={currentQuestion}
-        previousQuestion={previousQuestion}
-        showNextButton={showNextButton}
-        questions={questions}
-        nextQuestion={nextQuestion}
-      />
+    <div className="quiz-contaier">
+      <div className="quiz">
+        <Question questions={questions} currentQuestion={currentQuestion} />
+        <Form
+          shuffledOptions={shuffledOptions}
+          showButtonNext={showButtonNext}
+          showButtonPrevious={showButtonPrevious}
+          questions={questions}
+          currentQuestion={currentQuestion}
+        />
+        <Buttons
+          showPrevioustButton={showPrevioustButton}
+          currentQuestion={currentQuestion}
+          previousQuestion={previousQuestion}
+          showNextButton={showNextButton}
+          questions={questions}
+          nextQuestion={nextQuestion}
+        />
+      </div>
     </div>
   );
 }

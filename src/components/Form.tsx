@@ -1,5 +1,5 @@
 import { QuestionsType } from "../App";
-
+import { Option } from "../components/Option";
 type Props = {
   shuffledOptions: any;
   showButtonNext: () => void;
@@ -18,33 +18,13 @@ export function Form({
     <form className="options">
       {/* @ts-ignore */}
       {shuffledOptions.map((option) => (
-        <label
-          className="option"
-          onClick={(event) => {
-            showButtonNext();
-            showButtonPrevious();
-            //@ts-ignore
-            const rightAnswer = event.target.question.value;
-            console.log(rightAnswer);
-          }}
-        >
-          <input
-            onClick={(event) => {}}
-            type="radio"
-            name="question"
-            value={option.toLowerCase()}
-          />
-          <span
-            className={
-              //@ts-ignore
-              option === questions.results[currentQuestion].correct_answer
-                ? "radio-value right"
-                : "radio-value"
-            }
-          >
-            {option}
-          </span>
-        </label>
+        <Option
+          showButtonNext={showButtonNext}
+          showButtonPrevious={showButtonPrevious}
+          option={option}
+          questions={questions}
+          currentQuestion={currentQuestion}
+        />
       ))}
     </form>
   );
