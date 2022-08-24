@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
+import { Route, Routes } from "react-router";
 import "./App.css";
+import { Categories } from "./pages/Categories";
+import { Home } from "./pages/Home";
 import { Quiz } from "./pages/Quiz";
 // let Question = {
 //   "category": "Entertainment: Video Games",
@@ -43,11 +46,20 @@ function App() {
 
   return (
     <div className="App">
-      <Quiz
-        questions={questions}
-        currentQuestion={currentQuestion}
-        setCurrentQuestion={setCurrentQuestion}
-      />
+      <Routes>
+        <Route
+          path="quiz"
+          element={
+            <Quiz
+              questions={questions}
+              currentQuestion={currentQuestion}
+              setCurrentQuestion={setCurrentQuestion}
+            />
+          }
+        />
+        <Route path="home" element={<Home />} />
+        <Route path="categories" element={<Categories />} />
+      </Routes>
     </div>
   );
 }

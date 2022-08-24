@@ -41,7 +41,7 @@ export function Quiz({
   const shuffledOptions = options.sort(() => Math.random() - 0.5);
 
   return (
-    <>
+    <div className="quiz">
       <Question questions={questions} currentQuestion={currentQuestion} />
       <Form
         shuffledOptions={shuffledOptions}
@@ -58,6 +58,6 @@ export function Quiz({
         questions={questions}
         nextQuestion={nextQuestion}
       />
-    </>
+    </div>
   );
 }

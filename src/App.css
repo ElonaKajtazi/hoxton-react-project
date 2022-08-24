@@ -9,12 +9,18 @@ body {
   display: grid;
   place-items: center;
 }
-.App {
-  text-align: center;
+.quiz {
   background-color: rgb(232, 230, 230);
   width: 80%;
   padding: 2rem;
   border-radius: 10px;
+}
+.App {
+  text-align: center;
+  /* background-color: rgb(232, 230, 230);
+  width: 80%;
+  padding: 2rem;
+  border-radius: 10px; */
 }
 
 .question {
