@@ -9,9 +9,9 @@ export function Home() {
         <nav>
           <ul className="nav-list-items">
             <li>
-              <Link to="/home">Home</Link>
+              <Link className="link" to="/home">Home</Link>
             </li>
-            <li>
+            <li className="link">
               <Link to="/categories">Categories</Link>
             </li>
           </ul>
@@ -19,28 +19,25 @@ export function Home() {
       </header>
       <main className="main">
         <div className="main-container">
-        <img
+          {/* <img
             className="main-img"
             src="https://cdn.woorise.com/wp-content/uploads/2020/10/quiz-maker-apps-tools.png"
             alt=""
-          />
+          /> */}
           <div className="main-text">
-            <h2>
+            <h1>
               Put your knowledge to the test with curious quizzes for all levels
-            </h2>
+            </h1>
 
             <p className="description">
               You will find all sorts of topics such as general knowledge, food,
               TV, movies, history, geography, sports but also some themed
-              quizzes (cars, cricket…).
+              quizzes.
             </p>
             <Link to="/categories">
-              <Button variant="contained" color="success">
-                Take your first quiz
-              </Button>
+              <button className="button"> Take your first quiz</button>
             </Link>
           </div>
-         
         </div>
       </main>
     </div>
