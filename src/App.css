@@ -180,3 +180,13 @@ button:active {
 .link:hover {
   border-bottom: 1px solid #725ac1;
 }
+.categories-main {
+  padding: 1rem;
+}
+.categories-main ul {
+  display: grid;
+  height: 100%;
+  grid-template-columns: repeat(auto-fit, 300px);
+  grid-gap: 2rem;
+  place-content: center;
+}

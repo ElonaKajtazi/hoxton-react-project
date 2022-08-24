@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Route, Routes } from "react-router";
+import { Navigate, Route, Routes } from "react-router";
 import "./App.css";
 import { Categories } from "./pages/Categories";
 import { Home } from "./pages/Home";
@@ -32,12 +32,16 @@ function App() {
   const [questions, setQuestions] = useState<QuestionsType[]>([]);
 
   const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [category, setCategory] = useState("");
+  console.log(category)
   useEffect(() => {
-    fetch("https://opentdb.com/api.php?amount=10")
+    fetch(
+      `https://opentdb.com/api.php?amount=10&category=${Number(category)}&difficulty=easy&type=multiple`
+    )
       .then((res) => res.json())
       .then((resultsFromServer) => {
         setQuestions(resultsFromServer);
-        console.log(resultsFromServer);
+        // console.log(resultsFromServer);
       });
   }, []);
   {
@@ -47,6 +51,7 @@ function App() {
   return (
     <div className="App">
       <Routes>
+        <Route index element={<Navigate to="/home" />} />
         <Route
           path="quiz"
           element={
@@ -58,7 +63,10 @@ function App() {
           }
         />
         <Route path="home" element={<Home />} />
-        <Route path="categories" element={<Categories />} />
+        <Route
+          path="categories"
+          element={<Categories setCategory={setCategory} />}
+        />
       </Routes>
     </div>
   );
