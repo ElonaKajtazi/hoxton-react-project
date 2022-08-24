@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import { Form } from "./components/Form";
+import { Quiz } from "./pages/Quiz";
 // let Question = {
 //   "category": "Entertainment: Video Games",
 //   "type": "multiple",
@@ -48,10 +48,9 @@ function App() {
     <div className="App">
       {/* <h1>Let's start this project...</h1> */}
 
-      <Form
+      <Quiz
         questions={questions}
         currentQuestion={currentQuestion}
-
         setCurrentQuestion={setCurrentQuestion}
       />
     </div>
