@@ -120,8 +120,9 @@ input[type="radio"]:checked + .radio-value.right {
 .main {
   display: grid;
   height: 87vh;
-  /* place-content: center; */
+  place-items: center;
   padding: 1rem;
+
 }
 .main-container {
   /* display: grid;
@@ -130,16 +131,21 @@ input[type="radio"]:checked + .radio-value.right {
   gap: 1.5rem;
   place-content: center; */
   display: grid;
-  grid-template-columns: repeat(auto-fit, 500px);
-  justify-content: center;
-  grid-gap: 2rem;
-  place-items: center;
-  height: 80%;
+  /* grid-template-columns: repeat(auto-fit, 500px); */
+  /* justify-content: center; */
+  /* grid-gap: 2rem; */
+  /* place-items: center; */
+  /* height: 80%; */
+  width: 70%;
+  border: 1px solid black;
+  /* padding: 1rem; */
+  gap: 2rem;
+
 }
 .main-text {
   display: grid;
   gap: 1rem;
-  /* padding: 1rem; */
+  padding: 0.5rem 1rem;
 
 }
 .description {

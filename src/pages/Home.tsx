@@ -19,6 +19,11 @@ export function Home() {
       </header>
       <main className="main">
         <div className="main-container">
+        <img
+            className="main-img"
+            src="https://cdn.woorise.com/wp-content/uploads/2020/10/quiz-maker-apps-tools.png"
+            alt=""
+          />
           <div className="main-text">
             <h2>
               Put your knowledge to the test with curious quizzes for all levels
@@ -35,11 +40,7 @@ export function Home() {
               </Button>
             </Link>
           </div>
-          <img
-            className="main-img"
-            src="https://thebloggingbuddha.com/wp-content/uploads/2019/03/Online-Quizzes.jpg"
-            alt=""
-          />
+         
         </div>
       </main>
     </div>
