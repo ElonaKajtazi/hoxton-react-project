@@ -114,23 +114,44 @@ input[type="radio"]:checked + .radio-value.right {
   margin-left: 1rem;
 }
 .home-page {
-  background-color: rgb(193, 231, 255);
+  background-color: #f2f7f2;
   height: 100vh;
 }
 .main {
   display: grid;
-  grid-template-rows: 1fr auto;
   height: 87vh;
+  /* place-content: center; */
+  padding: 1rem;
 }
 .main-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, 500px);
+  /* display: grid;
+  grid-template-columns: repeat(auto-fit, 400px);
   padding: 1rem;
   gap: 1.5rem;
-  /* background-color: rgb(230, 230, 247); */
+  place-content: center; */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 500px);
+  justify-content: center;
+  grid-gap: 2rem;
+  place-items: center;
+  height: 80%;
+}
+.main-text {
+  display: grid;
+  gap: 1rem;
+  /* padding: 1rem; */
 
-  place-content: center;
+}
+.description {
+  font-size: 1.3rem;
+}
+.main-img {
+  border-radius: 15px;
 }
 img {
   width: 100%;
 }
+a {
+all: unset;
+}
+
