@@ -2,12 +2,6 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: sans-serif;
-}
-:root {
-  --select-border: #777;
-  --select-focus: blue;
-  --select-arrow: var(--select-border);
 }
 .App {
   text-align: center;
@@ -15,15 +9,15 @@
 }
 .quiz-contaier {
   text-align: center;
-  height: 100vh;
   display: grid;
-  place-items: center;
+  max-width: 100%;
 }
 .quiz {
   background-color: rgb(232, 230, 230);
-  width: 80%;
+  /* width: 80%; */
   padding: 2rem;
   border-radius: 10px;
+  margin: 8% 22% 5%;
 }
 
 /* background-color: rgb(232, 230, 230);
@@ -32,8 +26,10 @@
   border-radius: 10px; */
 
 .question {
-  font-size: medium;
+  font-weight: 500;
+  font-size: 20px;
   padding: 1rem;
+  padding-bottom: 2rem;
 }
 .options {
   display: grid;
@@ -90,16 +86,62 @@ input[type="radio"]:checked + .radio-value {
 input[type="radio"]:checked + .radio-value.right {
   background-color: aquamarine;
 }
-.header {
-  position: relative;
+.buttons {
+  padding-top: 2rem;
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-auto-flow: column;
+  justify-content: center;
+  gap: 2rem;
+}
+.previous-btn {
+  padding: 0.8rem 2.5rem;
+  border-radius: 12px;
+}
+
+.next-btn {
+  padding: 0.8rem 2.5rem;
+  border-radius: 12px;
+}
+.header {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
   align-items: center;
-  gap: 0.5rem;
+  gap: 3rem;
   border-bottom: 1px solid #725ac3;
   height: 8vh;
   color: #725ac3;
+  padding: 0 5%;
 }
+.rightt {
+  padding: 0.5rem 2rem;
+  border-radius: 16px;
+  text-align: center;
+  font-size: 18px;
+  letter-spacing: 1px;
+  text-decoration: none;
+  color: #211749;
+  background: transparent;
+  cursor: pointer;
+  transition: ease-out 0.5s;
+  border: 1px solid #211749;
+  box-shadow: inset 0 0 0 0 #211749;
+}
+
+.rightt:hover {
+  color: white;
+  box-shadow: inset 0 -100px 0 0 #725ac1;
+}
+
+.rightt:active {
+  transform: scale(0.9);
+}
+
+nav {
+  display: grid;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .nav-list-items {
   display: grid;
   grid-auto-flow: column;
@@ -137,7 +179,7 @@ input[type="radio"]:checked + .radio-value.right {
 }
 .main-text h1 {
   font-size: 44px;
-  line-height: 1.5;
+  line-height: 1.3;
 }
 .main-text h1 span{
   color: #211749;
@@ -158,7 +200,7 @@ a {
   position: relative;
   display: inline-block;
   margin: 15px;
-  padding: 15px 30px;
+  padding: 0.8rem 3rem;
   text-align: center;
   font-size: 18px;
   letter-spacing: 1px;
@@ -180,9 +222,7 @@ a {
 .button:active {
   transform: scale(0.9);
 }
-.link {
-  /* background-color: red; */
-}
+
 .link:hover {
   border-bottom: 1px solid #725ac1;
 }
@@ -197,7 +237,7 @@ a {
   background: linear-gradient(to right, #36d1dc, #5b86e5);
   height: 92vh;
   padding: 1rem;
-  border:  3px solid black;
+  border:  px solid #725ac3;
 
 }
 .categories-container {
@@ -207,10 +247,12 @@ a {
   margin: 9% 17% 5%;
   text-align: center;
 }
+.categories-container h1 {
+  color: #211749;
+  font-size: 44px;
+}
 .text {
-  /* width: 550px;
-  text-align: justify; */
-  padding-top: 2rem;
+  padding-bottom: 1rem;
   color: white;
   line-height: 1.5;
   font-size: 18px;

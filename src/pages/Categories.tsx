@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { Navbar } from "../components/Navbar";
 type Category = {
   name: string;
   id: number;
@@ -31,24 +32,11 @@ export function Categories({ setCategory, setDifficulty }) {
   if (categories.length === 0) return <h1>loadinggggg</h1>;
   return (
     <div className="categories">
-      <header className="header">
-        <div className="header-logo"> Quizz App</div>
-        <nav>
-          <ul className="nav-list-items">
-            <li>
-              <Link className="link" to="/home">
-                Home
-              </Link>
-            </li>
-            <li className="link">
-              <Link to="/categories">Categories</Link>
-            </li>
-          </ul>
-        </nav>
-      </header>
+      <Navbar />
       <main className="categories-main">
         <div className="help">
           <div className="categories-container">
+            <h1>Categories</h1>
             <p className="text">
               Choose a category in which to play the Trivia Quiz from General
               Knowledge, Dictionary, Entertainment, History, Food + Drink,
@@ -62,6 +50,7 @@ export function Categories({ setCategory, setDifficulty }) {
                 defaultValue="Select Category"
                 onChange={(e) => setCategory(Number(e.target.value))}
               >
+                <option>Category</option>
                 {categories.map((category) => (
                   <option value={category.id} key={category.id}>
                     {category.name}
@@ -77,6 +66,7 @@ export function Categories({ setCategory, setDifficulty }) {
                   setDifficulty(e.target.value);
                 }}
               >
+                <option>Difficulty</option>
                 <option value="easy">Easy</option>
                 <option value="medium">Medium</option>
                 <option value="hard">Hard</option>

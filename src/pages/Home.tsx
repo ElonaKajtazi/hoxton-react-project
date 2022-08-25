@@ -1,10 +1,13 @@
 
 import { Link } from "react-router-dom";
 
+import {Navbar} from '../components/Navbar';
+
 export function Home() {
   return (
     <div className="home-page">
-      <header className="header">
+      <Navbar />
+      {/* <header className="header">
         <div className="header-logo"> Quizz App</div>
         <nav>
           <ul className="nav-list-items">
@@ -16,7 +19,10 @@ export function Home() {
             </li>
           </ul>
         </nav>
-      </header>
+        <div className="rightt">
+          <Link className="" to="/categories">Start quiz</Link>
+        </div>
+      </header> */}
       <main className="main">
         <div className="main-container">
           {/* <img

@@ -18,7 +18,7 @@ export function Buttons({
   nextQuestion,
 }: Props) {
   return (
-    <div>
+    <div className="buttons">
       {showPrevioustButton && currentQuestion > 0 ? (
         <button
           className="previous-btn"
@@ -26,7 +26,7 @@ export function Buttons({
             previousQuestion();
           }}
         >
-          Prevous
+          Previous
         </button>
       ) : null}
       {showNextButton && currentQuestion + 1 < questions.length ? (
