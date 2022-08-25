@@ -5,6 +5,7 @@ type Props = {
   difficulty: string;
   setFinalScore: React.Dispatch<React.SetStateAction<boolean>>;
   setCurrentQuestion: React.Dispatch<React.SetStateAction<number>>;
+  setScore: React.Dispatch<React.SetStateAction<number>>;
 };
 export function FinalScore({
   score,
@@ -12,6 +13,7 @@ export function FinalScore({
   difficulty,
   setFinalScore,
   setCurrentQuestion,
+  setScore,
 }: Props) {
   return (
     <div className="quiz">
@@ -25,6 +27,7 @@ export function FinalScore({
           onClick={() => {
             setFinalScore(false);
             setCurrentQuestion(0);
+            setScore(0);
           }}
         >
           Take another quiz

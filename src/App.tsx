@@ -75,6 +75,7 @@ function App({}) {
           element={
             finalScore ? (
               <FinalScore
+                setScore={setScore}
                 setCurrentQuestion={setCurrentQuestion}
                 setFinalScore={setFinalScore}
                 score={score}
