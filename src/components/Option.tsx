@@ -1,9 +1,10 @@
+import { useState } from "react";
 import { QuestionType } from "../App";
 
 type Props = {
   showButtonNext: () => void;
   showButtonPrevious: () => void;
-  option: any;
+  option: string;
   questions: QuestionType[];
   currentQuestion: number;
 };
@@ -14,6 +15,7 @@ export function Option({
   questions,
   currentQuestion,
 }: Props) {
+  const [userAnswered, setUserAnswered] = useState(false);
   return (
     <label
       className="option"
@@ -37,9 +39,9 @@ export function Option({
             ? "radio-value right"
             : "radio-value"
         }
-        // onClick={()=>{
-        //   option === questions.results[currentQuestion].correct_answer alert("Right")
-        // }}
+        onClick={() => {
+          setUserAnswered(true);
+        }}
       >
         {option}
       </span>

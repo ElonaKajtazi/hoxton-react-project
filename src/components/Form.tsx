@@ -6,6 +6,8 @@ type Props = {
   showButtonPrevious: () => void;
   questions: QuestionType[];
   currentQuestion: number;
+
+  // answer: string;
 };
 export function Form({
   shuffledOptions,
@@ -13,20 +15,29 @@ export function Form({
   showButtonPrevious,
   questions,
   currentQuestion,
-}: Props) {
-  return (
-    <form className="options">
 
-      {shuffledOptions.map((option) => (
-        <Option
-          key={option}
-          showButtonNext={showButtonNext}
-          showButtonPrevious={showButtonPrevious}
-          option={option}
-          questions={questions}
-          currentQuestion={currentQuestion}
-        />
-      ))}
-    </form>
+}: // answer,
+Props) {
+  return (
+    <>
+      {/* {userAnswered && option === questions[currentQuestion].correct_answer ? (
+        <div>YAY</div>
+      ) : null}
+      {userAnswered && option !== questions[currentQuestion].correct_answer ? (
+        <div>Nope</div>
+      ) : null} */}
+      <form className="options">
+        {shuffledOptions.map((option) => (
+          <Option
+            key={option}
+            showButtonNext={showButtonNext}
+            showButtonPrevious={showButtonPrevious}
+            option={option}
+            questions={questions}
+            currentQuestion={currentQuestion}
+          />
+        ))}
+      </form>
+    </>
   );
 }

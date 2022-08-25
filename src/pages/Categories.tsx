@@ -7,7 +7,7 @@ type Category = {
 // type Props = {
 //   setCategory: () => void;
 // };
-export function Categories({ setCategory }) {
+export function Categories({ setCategory, setDifficulty}) {
   const [categories, setCategories] = useState<Category[]>([]);
 
   useEffect(() => {
@@ -60,6 +60,13 @@ export function Categories({ setCategory }) {
         </select>
         <Link to="/quiz">Start</Link>
         {/* <button>Start</button> */}
+        <select onChange={(e) =>{
+          setDifficulty(e.target.value)
+        }}>
+          <option value="easy">Easy</option>
+          <option value="medium">Medium</option>
+          <option value="hard">Hard</option>
+        </select>
       </main>
     </div>
   );

@@ -41,6 +41,7 @@ function App() {
 
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [category, setCategory] = useState(0);
+  const [difficulty, setDifficulty] = useState("");
   // const categoryAsNumber = Number(category);
   // console.log(categoryAsNumber);
 
@@ -48,14 +49,15 @@ function App() {
   // const params = useParams();
   useEffect(() => {
     console.log(category);
+    console.log(difficulty)
     fetch(
-      `https://opentdb.com/api.php?amount=10&category=${category}&difficulty=easy&type=multiple`
+      `https://opentdb.com/api.php?amount=10&category=${category}&difficulty=${difficulty}&type=multiple`
     )
       .then((res) => res.json())
       .then((resultsFromServer) => {
         setQuestions(resultsFromServer.results);
       });
-  }, [category]);
+  }, [category, difficulty]);
   {
     if (questions.length === 0) return <h1>Loading...</h1>;
   }
@@ -72,13 +74,19 @@ function App() {
               questions={questions}
               currentQuestion={currentQuestion}
               setCurrentQuestion={setCurrentQuestion}
+              // setDifficulty={setDifficulty}
             />
           }
         />
         <Route path="home" element={<Home />} />
         <Route
           path="categories"
-          element={<Categories setCategory={setCategory} />}
+          element={
+            <Categories
+              setCategory={setCategory}
+              setDifficulty={setDifficulty}
+            />
+          }
         />
       </Routes>
     </div>

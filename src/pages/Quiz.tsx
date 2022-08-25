@@ -7,18 +7,23 @@ type Props = {
   questions: QuestionType[];
   currentQuestion: number;
   setCurrentQuestion: React.Dispatch<React.SetStateAction<number>>;
+  // setUserAnswered: React.Dispatch<React.SetStateAction<boolean>>;
+  // userAnswered: boolean
+  // option: string
 };
 export function Quiz({
   questions,
   currentQuestion,
   setCurrentQuestion,
-}: Props) {
+}: // userAnswered,
+// option,
+
+Props) {
   const [showNextButton, setShowNextButton] = useState(false);
   const [showPrevioustButton, setShowPrevioustButton] = useState(false);
-
-  const [answer, setAnswer] = useState(
-    questions[currentQuestion].correct_answer
-  );
+  // const [answer, setAnswer] = useState(
+  //   questions[currentQuestion].correct_answer
+  // );
 
   const showButtonNext = () => {
     setShowNextButton(true);
