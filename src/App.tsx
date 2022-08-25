@@ -4,6 +4,7 @@ import "./App.css";
 import { Categories } from "./pages/Categories";
 import { Home } from "./pages/Home";
 import { Quiz } from "./pages/Quiz";
+
 // let Question = {
 //   "category": "Entertainment: Video Games",
 //   "type": "multiple",
@@ -28,15 +29,25 @@ export type QuestionsType = {
   response_code: number;
   results: Question[];
 };
+type Category = {
+  name: string;
+  id: number;
+};
+type CategoriesType = {
+  trivia_categories: Category[];
+};
 function App() {
   const [questions, setQuestions] = useState<QuestionsType[]>([]);
 
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [category, setCategory] = useState("");
-  console.log(category)
+  const categoryAsNumber = Number(category);
+  console.log(categoryAsNumber);
+
+  // console.log(Number(category));
   useEffect(() => {
     fetch(
-      `https://opentdb.com/api.php?amount=10&category=${Number(category)}&difficulty=easy&type=multiple`
+      `https://opentdb.com/api.php?amount=10&category=${categoryAsNumber}&difficulty=easy&type=multiple`
     )
       .then((res) => res.json())
       .then((resultsFromServer) => {

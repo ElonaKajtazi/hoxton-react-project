@@ -17,7 +17,7 @@ export function Quiz({
   const [showPrevioustButton, setShowPrevioustButton] = useState(false);
 
   const [answer, setAnswer] = useState(
-    //@ts-ignore
+
     questions.results[currentQuestion].correct_answer
   );
 
@@ -42,24 +42,24 @@ export function Quiz({
 
   return (
     <div className="quiz-contaier">
-      <div className="quiz">
-        <Question questions={questions} currentQuestion={currentQuestion} />
-        <Form
-          shuffledOptions={shuffledOptions}
-          showButtonNext={showButtonNext}
-          showButtonPrevious={showButtonPrevious}
-          questions={questions}
-          currentQuestion={currentQuestion}
-        />
-        <Buttons
-          showPrevioustButton={showPrevioustButton}
-          currentQuestion={currentQuestion}
-          previousQuestion={previousQuestion}
-          showNextButton={showNextButton}
-          questions={questions}
-          nextQuestion={nextQuestion}
-        />
-      </div>
+    <div className="quiz">
+      <Question questions={questions} currentQuestion={currentQuestion} />
+      <Form
+        shuffledOptions={shuffledOptions}
+        showButtonNext={showButtonNext}
+        showButtonPrevious={showButtonPrevious}
+        questions={questions}
+        currentQuestion={currentQuestion}
+      />
+      <Buttons
+        showPrevioustButton={showPrevioustButton}
+        currentQuestion={currentQuestion}
+        previousQuestion={previousQuestion}
+        showNextButton={showNextButton}
+        questions={questions}
+        nextQuestion={nextQuestion}
+      />
+    </div>
     </div>
   );
 }

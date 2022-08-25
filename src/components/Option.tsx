@@ -21,8 +21,8 @@ export function Option({
         showButtonNext();
         showButtonPrevious();
         //@ts-ignore
-        const rightAnswer = event.target.question.value;
-        console.log(rightAnswer);
+        // const rightAnswer = event.target.question.value;
+        // console.log(rightAnswer);
       }}
     >
       <input
