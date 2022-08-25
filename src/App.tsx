@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Navigate, Route, Routes } from "react-router";
+import { Navigate, Route, Routes, useParams } from "react-router";
 import "./App.css";
 import { Categories } from "./pages/Categories";
 import { Home } from "./pages/Home";
@@ -17,7 +17,7 @@ import { Quiz } from "./pages/Quiz";
 //     "Venom Snake"
 //   ]
 // }
-type Question = {
+export type QuestionType = {
   category: string;
   type: string;
   difficulty: string;
@@ -25,10 +25,10 @@ type Question = {
   correct_answer: string;
   incorrect_answers: string[];
 };
-export type QuestionsType = {
-  response_code: number;
-  results: Question[];
-};
+// export type QuestionType = {
+//   response_code: number;
+//   results: Question[];
+// };
 type Category = {
   name: string;
   id: number;
@@ -37,30 +37,32 @@ type CategoriesType = {
   trivia_categories: Category[];
 };
 function App() {
-  const [questions, setQuestions] = useState<QuestionsType[]>([]);
+  const [questions, setQuestions] = useState<QuestionType[]>([]);
 
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [category, setCategory] = useState("");
-  const categoryAsNumber = Number(category);
-  console.log(categoryAsNumber);
+  const [category, setCategory] = useState(0);
+  // const categoryAsNumber = Number(category);
+  // console.log(categoryAsNumber);
 
   // console.log(Number(category));
+  // const params = useParams();
   useEffect(() => {
+    console.log(category);
     fetch(
-      `https://opentdb.com/api.php?amount=10&category=${categoryAsNumber}&difficulty=easy&type=multiple`
+      `https://opentdb.com/api.php?amount=10&category=${category}&difficulty=easy&type=multiple`
     )
       .then((res) => res.json())
       .then((resultsFromServer) => {
-        setQuestions(resultsFromServer);
-        // console.log(resultsFromServer);
+        setQuestions(resultsFromServer.results);
       });
-  }, []);
+  }, [category]);
   {
     if (questions.length === 0) return <h1>Loading...</h1>;
   }
 
   return (
     <div className="App">
+      {/* <h1>hello &#039;</h1> */}
       <Routes>
         <Route index element={<Navigate to="/home" />} />
         <Route

@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { QuestionsType } from "../App";
+import { QuestionType } from "../App";
 import { Buttons } from "../components/Buttons";
 import { Form } from "../components/Form";
 import { Question } from "../components/Question";
 type Props = {
-  questions: QuestionsType[];
+  questions: QuestionType[];
   currentQuestion: number;
   setCurrentQuestion: React.Dispatch<React.SetStateAction<number>>;
 };
@@ -17,8 +17,7 @@ export function Quiz({
   const [showPrevioustButton, setShowPrevioustButton] = useState(false);
 
   const [answer, setAnswer] = useState(
-
-    questions.results[currentQuestion].correct_answer
+    questions[currentQuestion].correct_answer
   );
 
   const showButtonNext = () => {
@@ -34,32 +33,33 @@ export function Quiz({
     setCurrentQuestion(currentQuestion - 1);
   };
 
-  //@ts-ignore
-  const options = questions.results[currentQuestion].correct_answer
-    .split() //@ts-ignore
-    .concat(questions.results[currentQuestion].incorrect_answers);
+  const options: string[] = [
+    questions[currentQuestion].correct_answer,
+    ...questions[currentQuestion].incorrect_answers,
+  ];
+
   const shuffledOptions = options.sort(() => Math.random() - 0.5);
 
   return (
     <div className="quiz-contaier">
-    <div className="quiz">
-      <Question questions={questions} currentQuestion={currentQuestion} />
-      <Form
-        shuffledOptions={shuffledOptions}
-        showButtonNext={showButtonNext}
-        showButtonPrevious={showButtonPrevious}
-        questions={questions}
-        currentQuestion={currentQuestion}
-      />
-      <Buttons
-        showPrevioustButton={showPrevioustButton}
-        currentQuestion={currentQuestion}
-        previousQuestion={previousQuestion}
-        showNextButton={showNextButton}
-        questions={questions}
-        nextQuestion={nextQuestion}
-      />
-    </div>
+      <div className="quiz">
+        <Question questions={questions} currentQuestion={currentQuestion} />
+        <Form
+          shuffledOptions={shuffledOptions}
+          showButtonNext={showButtonNext}
+          showButtonPrevious={showButtonPrevious}
+          questions={questions}
+          currentQuestion={currentQuestion}
+        />
+        <Buttons
+          showPrevioustButton={showPrevioustButton}
+          currentQuestion={currentQuestion}
+          previousQuestion={previousQuestion}
+          showNextButton={showNextButton}
+          questions={questions}
+          nextQuestion={nextQuestion}
+        />
+      </div>
     </div>
   );
 }

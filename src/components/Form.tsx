@@ -1,10 +1,10 @@
-import { QuestionsType } from "../App";
+import { QuestionType } from "../App";
 import { Option } from "../components/Option";
 type Props = {
-  shuffledOptions: any;
+  shuffledOptions: string[];
   showButtonNext: () => void;
   showButtonPrevious: () => void;
-  questions: QuestionsType[];
+  questions: QuestionType[];
   currentQuestion: number;
 };
 export function Form({
@@ -16,9 +16,10 @@ export function Form({
 }: Props) {
   return (
     <form className="options">
-      {/* @ts-ignore */}
+
       {shuffledOptions.map((option) => (
         <Option
+          key={option}
           showButtonNext={showButtonNext}
           showButtonPrevious={showButtonPrevious}
           option={option}

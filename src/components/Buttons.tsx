@@ -1,11 +1,11 @@
-import { QuestionsType } from "../App";
+import { QuestionType } from "../App";
 
 type Props = {
   showPrevioustButton: boolean;
   currentQuestion: number;
   previousQuestion: () => void;
   showNextButton: boolean;
-  questions: QuestionsType[];
+  questions: QuestionType[];
   nextQuestion: () => void;
 };
 
@@ -29,8 +29,7 @@ export function Buttons({
           Prevous
         </button>
       ) : null}
-      {/* @ts-ignore    */}
-      {showNextButton && currentQuestion + 1 < questions.results.length ? (
+      {showNextButton && currentQuestion + 1 < questions.length ? (
         <button
           className="next-btn"
           onClick={() => {

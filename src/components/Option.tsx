@@ -1,10 +1,10 @@
-import { QuestionsType } from "../App";
+import { QuestionType } from "../App";
 
 type Props = {
   showButtonNext: () => void;
   showButtonPrevious: () => void;
   option: any;
-  questions: QuestionsType[];
+  questions: QuestionType[];
   currentQuestion: number;
 };
 export function Option({
@@ -33,11 +33,13 @@ export function Option({
       />
       <span
         className={
-            //@ts-ignore
-          option === questions.results[currentQuestion].correct_answer
+          option === questions[currentQuestion].correct_answer
             ? "radio-value right"
             : "radio-value"
         }
+        // onClick={()=>{
+        //   option === questions.results[currentQuestion].correct_answer alert("Right")
+        // }}
       >
         {option}
       </span>

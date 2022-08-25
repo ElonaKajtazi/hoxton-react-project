@@ -1,13 +1,14 @@
-import { QuestionsType } from "../App";
-
+import { QuestionType } from "../App";
+import he from "he";
 type Props = {
-  questions: QuestionsType[];
+  questions: QuestionType[];
   currentQuestion: number;
 };
 
 export function Question({ questions, currentQuestion }: Props) {
   return (
-    //@ts-ignore
-    <h2 className="question">{questions.results[currentQuestion].question}</h2>
+    <h2 className="question">
+      {he.decode(questions[currentQuestion].question)}
+    </h2>
   );
 }

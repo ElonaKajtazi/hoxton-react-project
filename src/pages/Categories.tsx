@@ -4,19 +4,18 @@ type Category = {
   name: string;
   id: number;
 };
-type CategoriesType = {
-  trivia_categories: Category[];
-};
-export function Categories({setCategory}) {
+// type Props = {
+//   setCategory: () => void;
+// };
+export function Categories({ setCategory }) {
   const [categories, setCategories] = useState<Category[]>([]);
-
 
   useEffect(() => {
     fetch("https://opentdb.com/api_category.php")
       .then((rsp) => rsp.json())
       .then((categoriesFromServer) => {
-        setCategories(categoriesFromServer);
-        console.log(categoriesFromServer.trivia_categories);
+        setCategories(categoriesFromServer.trivia_categories);
+        // console.log(categoriesFromServer.trivia_categories);
       });
   }, []);
   // useEffect(() => {
@@ -50,16 +49,17 @@ export function Categories({setCategory}) {
       <main className="categories-main">
         <select
           defaultValue="Select Category"
-          onChange={(e) => setCategory(e.target.value) }
+          onChange={(e) => setCategory(Number(e.target.value))}
         >
-        
-          {categories.trivia_categories.map((category) => (
+          {categories.map((category) => (
             <option value={category.id} key={category.id}>
               {category.name}
             </option>
             // console.log(categoryAsNumber)
           ))}
         </select>
+        <Link to="/quiz">Start</Link>
+        {/* <button>Start</button> */}
       </main>
     </div>
   );
