@@ -26,7 +26,7 @@ export function Home() {
           /> */}
           <div className="main-text">
             <h1>
-              Put your knowledge to the test with curious quizzes for all levels
+              Put your <span>knowledge</span> to the test with curious quizzes for all levels
             </h1>
 
             <p className="description">
