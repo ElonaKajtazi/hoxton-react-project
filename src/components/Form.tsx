@@ -6,6 +6,8 @@ type Props = {
   showButtonPrevious: () => void;
   questions: QuestionType[];
   currentQuestion: number;
+  setScore: React.Dispatch<React.SetStateAction<number>>;
+  score: number;
 
   // answer: string;
 };
@@ -15,17 +17,12 @@ export function Form({
   showButtonPrevious,
   questions,
   currentQuestion,
-
+  setScore,
+  score,
 }: // answer,
 Props) {
   return (
     <>
-      {/* {userAnswered && option === questions[currentQuestion].correct_answer ? (
-        <div>YAY</div>
-      ) : null}
-      {userAnswered && option !== questions[currentQuestion].correct_answer ? (
-        <div>Nope</div>
-      ) : null} */}
       <form className="options">
         {shuffledOptions.map((option) => (
           <Option
@@ -35,6 +32,8 @@ Props) {
             option={option}
             questions={questions}
             currentQuestion={currentQuestion}
+            score={score}
+            setScore={setScore}
           />
         ))}
       </form>

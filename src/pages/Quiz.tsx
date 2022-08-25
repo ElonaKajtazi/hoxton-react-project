@@ -10,20 +10,31 @@ type Props = {
   // setUserAnswered: React.Dispatch<React.SetStateAction<boolean>>;
   // userAnswered: boolean
   // option: string
+  setFinalScore: React.Dispatch<React.SetStateAction<boolean>>;
+  score: number;
+  setScore: React.Dispatch<React.SetStateAction<number>>;
 };
 export function Quiz({
   questions,
   currentQuestion,
   setCurrentQuestion,
+  setFinalScore,
+  score,
+  setScore,
 }: // userAnswered,
 // option,
 
 Props) {
   const [showNextButton, setShowNextButton] = useState(false);
   const [showPrevioustButton, setShowPrevioustButton] = useState(false);
+  const [showSubmitButton, setShowSubmitButton] = useState(false);
+
   // const [answer, setAnswer] = useState(
   //   questions[currentQuestion].correct_answer
   // );
+  const submitBtn = () => {
+    if (currentQuestion === questions.length) setShowSubmitButton(true);
+  };
 
   const showButtonNext = () => {
     setShowNextButton(true);
@@ -55,8 +66,11 @@ Props) {
           showButtonPrevious={showButtonPrevious}
           questions={questions}
           currentQuestion={currentQuestion}
+          score={score}
+          setScore={setScore}
         />
         <Buttons
+          setFinalScore={setFinalScore}
           showPrevioustButton={showPrevioustButton}
           currentQuestion={currentQuestion}
           previousQuestion={previousQuestion}

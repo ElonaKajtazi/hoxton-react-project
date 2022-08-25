@@ -7,6 +7,8 @@ type Props = {
   option: string;
   questions: QuestionType[];
   currentQuestion: number;
+  setScore: React.Dispatch<React.SetStateAction<number>>;
+  score: number;
 };
 export function Option({
   showButtonNext,
@@ -14,6 +16,8 @@ export function Option({
   option,
   questions,
   currentQuestion,
+  setScore,
+  score,
 }: Props) {
   const [userAnswered, setUserAnswered] = useState(false);
   return (
@@ -22,6 +26,22 @@ export function Option({
       onClick={(event) => {
         showButtonNext();
         showButtonPrevious();
+        if (option === questions[currentQuestion].correct_answer) {
+          setScore((score + 1));
+          console.log(score);
+        }
+        // {
+        //   userAnswered &&
+        //   option === questions[currentQuestion].correct_answer ? (
+        //     <div>YAY</div>
+        //   ) : null;
+        // }
+        // {
+        //   userAnswered &&
+        //   option !== questions[currentQuestion].correct_answer ? (
+        //     <div>Nope</div>
+        //   ) : null;
+        // }
         //@ts-ignore
         // const rightAnswer = event.target.question.value;
         // console.log(rightAnswer);

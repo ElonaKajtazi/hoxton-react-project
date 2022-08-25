@@ -5,10 +5,11 @@ type Category = {
   name: string;
   id: number;
 };
-// type Props = {
-//   setCategory: () => void;
-// };
-export function Categories({ setCategory, setDifficulty }) {
+type Props = {
+  setCategory: React.Dispatch<React.SetStateAction<number>>;
+  setDifficulty: React.Dispatch<React.SetStateAction<string>>;
+};
+export function Categories({ setCategory, setDifficulty }: Props) {
   const [categories, setCategories] = useState<Category[]>([]);
 
   useEffect(() => {

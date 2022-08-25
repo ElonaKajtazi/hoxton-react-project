@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Navigate, Route, Routes, useParams } from "react-router";
 import "./App.css";
+import { FinalScore } from "./components/FinalScore";
 import { Categories } from "./pages/Categories";
 import { Home } from "./pages/Home";
 import { Quiz } from "./pages/Quiz";
@@ -36,12 +37,14 @@ type Category = {
 type CategoriesType = {
   trivia_categories: Category[];
 };
-function App() {
+function App({}) {
   const [questions, setQuestions] = useState<QuestionType[]>([]);
 
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [category, setCategory] = useState(0);
   const [difficulty, setDifficulty] = useState("");
+  const [finalScore, setFinalScore] = useState(false);
+  const [score, setScore] = useState(0);
   // const categoryAsNumber = Number(category);
   // console.log(categoryAsNumber);
 
@@ -49,7 +52,7 @@ function App() {
   // const params = useParams();
   useEffect(() => {
     console.log(category);
-    console.log(difficulty)
+    console.log(difficulty);
     fetch(
       `https://opentdb.com/api.php?amount=10&category=${category}&difficulty=${difficulty}&type=multiple`
     )
@@ -70,12 +73,25 @@ function App() {
         <Route
           path="quiz"
           element={
-            <Quiz
-              questions={questions}
-              currentQuestion={currentQuestion}
-              setCurrentQuestion={setCurrentQuestion}
-              // setDifficulty={setDifficulty}
-            />
+            finalScore ? (
+              <FinalScore
+                setCurrentQuestion={setCurrentQuestion}
+                setFinalScore={setFinalScore}
+                score={score}
+                category={category}
+                difficulty={difficulty}
+              />
+            ) : (
+              <Quiz
+                score={score}
+                setScore={setScore}
+                setFinalScore={setFinalScore}
+                questions={questions}
+                currentQuestion={currentQuestion}
+                setCurrentQuestion={setCurrentQuestion}
+                // setDifficulty={setDifficulty}
+              />
+            )
           }
         />
         <Route path="home" element={<Home />} />

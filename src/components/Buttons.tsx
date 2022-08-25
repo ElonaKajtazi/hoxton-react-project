@@ -7,6 +7,7 @@ type Props = {
   showNextButton: boolean;
   questions: QuestionType[];
   nextQuestion: () => void;
+  setFinalScore: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 export function Buttons({
@@ -16,6 +17,7 @@ export function Buttons({
   showNextButton,
   questions,
   nextQuestion,
+  setFinalScore,
 }: Props) {
   return (
     <div className="buttons">
@@ -37,6 +39,16 @@ export function Buttons({
           }}
         >
           NEXT
+        </button>
+      ) : null}
+      {currentQuestion === 9 ? (
+        <button
+          className="next-btn"
+          onClick={() => {
+            setFinalScore(true);
+          }}
+        >
+          Submit
         </button>
       ) : null}
     </div>
