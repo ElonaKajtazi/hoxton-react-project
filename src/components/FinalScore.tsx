@@ -15,6 +15,7 @@ export function FinalScore({
   setCurrentQuestion,
   setScore,
 }: Props) {
+  let score1 = score / 2;
   return (
     <div className="quiz score">
       <h2>
@@ -50,7 +51,9 @@ export function FinalScore({
         {difficulty === "medium" ? " Medium" : null}
         {difficulty === "hard" ? " Hard" : null}
       </h2>
-      <h2>Score: {score / 2} out of 10</h2>
+      <h2>
+        Score: {score1} out of 10 - ({(score1 / 10) * 100 + "%"})
+      </h2>
       <Link to="/categories">
         {" "}
         <button
