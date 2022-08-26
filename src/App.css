@@ -44,7 +44,7 @@ ul {
 .option {
   /* background-color: pink; */
   padding: 0.5rem;
-  width: auto;
+  /* width: auto; */
   /* height: 35px; */
   display: grid;
   border: 1px solid rgba(255, 255, 255, 0.756);
@@ -320,10 +320,9 @@ select {
   );
   box-shadow: 0 4px 15px 0 rgba(45, 54, 65, 0.75);
 }
-.submit-btn{
-background-color: red;
-display: grid;
-
+.submit-btn {
+  background-color: red;
+  display: grid;
 }
 .score {
   display: grid;

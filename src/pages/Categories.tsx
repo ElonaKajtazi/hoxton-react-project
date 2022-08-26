@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { CategoriesMain } from "../components/CategoriesMain";
-import { Navbar } from "../components/Navbar";
+import { NavBar } from "../components/NavBar";
 export type Category = {
   name: string;
   id: number;
@@ -24,7 +24,7 @@ export function Categories({ setCategory, setDifficulty }: Props) {
   if (categories.length === 0) return <h1>Loading...</h1>;
   return (
     <div className="categories">
-      <Navbar />
+      <NavBar />
       <CategoriesMain
         setCategory={setCategory}
         categories={categories}

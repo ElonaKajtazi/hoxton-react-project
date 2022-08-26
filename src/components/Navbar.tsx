@@ -1,6 +1,6 @@
-import {Link} from 'react-router-dom';
+import { Link } from "react-router-dom";
 
-export function Navbar() {
+export function NavBar() {
   return (
     <header className="header">
       <div className="header-logo"> Quizz App</div>
