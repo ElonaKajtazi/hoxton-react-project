@@ -4,6 +4,7 @@ import "./App.css";
 import { FinalScore } from "./components/FinalScore";
 import { Categories } from "./pages/Categories";
 import { Home } from "./pages/Home";
+import { PageNotFound } from "./pages/PageNotFound";
 import { Quiz } from "./pages/Quiz";
 
 // let Question = {
@@ -37,7 +38,7 @@ type Category = {
 type CategoriesType = {
   trivia_categories: Category[];
 };
-function App({ }) {
+function App({}) {
   const [questions, setQuestions] = useState<QuestionType[]>([]);
 
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -107,6 +108,7 @@ function App({ }) {
             />
           }
         />
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
     </div>
   );
