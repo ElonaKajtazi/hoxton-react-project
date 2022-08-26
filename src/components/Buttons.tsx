@@ -21,7 +21,7 @@ export function Buttons({
 }: Props) {
   return (
     <div className="buttons">
-      {showPrevioustButton && currentQuestion > 0 ? (
+      {/* {showPrevioustButton && currentQuestion > 0 ? (
         <button
           className="previous-btn"
           onClick={() => {
@@ -30,10 +30,10 @@ export function Buttons({
         >
           Previous
         </button>
-      ) : null}
+      ) : null} */}
       {showNextButton && currentQuestion + 1 < questions.length ? (
         <button
-          className="next-btn"
+          className="bn632-hover bn25"
           onClick={() => {
             nextQuestion();
           }}
@@ -43,12 +43,12 @@ export function Buttons({
       ) : null}
       {currentQuestion === 9 ? (
         <button
-          className="next-btn"
+          className="bn632-hover bn25"
           onClick={() => {
             setFinalScore(true);
           }}
         >
-          Submit
+          SUBMIT
         </button>
       ) : null}
     </div>

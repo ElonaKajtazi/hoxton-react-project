@@ -8,7 +8,7 @@ type Props = {
   currentQuestion: number;
   setScore: React.Dispatch<React.SetStateAction<number>>;
   score: number;
-
+  setFinalScore: React.Dispatch<React.SetStateAction<boolean>>;
   // answer: string;
 };
 export function Form({
@@ -19,6 +19,7 @@ export function Form({
   currentQuestion,
   setScore,
   score,
+  setFinalScore,
 }: // answer,
 Props) {
   return (

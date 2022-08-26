@@ -37,7 +37,7 @@ type Category = {
 type CategoriesType = {
   trivia_categories: Category[];
 };
-function App({}) {
+function App({ }) {
   const [questions, setQuestions] = useState<QuestionType[]>([]);
 
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -90,6 +90,8 @@ function App({}) {
                 questions={questions}
                 currentQuestion={currentQuestion}
                 setCurrentQuestion={setCurrentQuestion}
+                // option={option}
+                // userAnswered={userAnswered}
                 // setDifficulty={setDifficulty}
               />
             )

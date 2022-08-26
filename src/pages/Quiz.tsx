@@ -13,6 +13,8 @@ type Props = {
   setFinalScore: React.Dispatch<React.SetStateAction<boolean>>;
   score: number;
   setScore: React.Dispatch<React.SetStateAction<number>>;
+  // userAnswered: boolean;
+  // option: string;
 };
 export function Quiz({
   questions,
@@ -21,10 +23,9 @@ export function Quiz({
   setFinalScore,
   score,
   setScore,
-}: // userAnswered,
-// option,
-
-Props) {
+  // userAnswered,
+  // option,
+}: Props) {
   const [showNextButton, setShowNextButton] = useState(false);
   const [showPrevioustButton, setShowPrevioustButton] = useState(false);
   const [showSubmitButton, setShowSubmitButton] = useState(false);
@@ -59,6 +60,8 @@ Props) {
   return (
     <div className="quiz-contaier">
       <div className="quiz">
+       
+
         <Question questions={questions} currentQuestion={currentQuestion} />
         <Form
           shuffledOptions={shuffledOptions}
@@ -68,6 +71,7 @@ Props) {
           currentQuestion={currentQuestion}
           score={score}
           setScore={setScore}
+          setFinalScore={setFinalScore}
         />
         <Buttons
           setFinalScore={setFinalScore}

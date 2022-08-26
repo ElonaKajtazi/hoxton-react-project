@@ -21,50 +21,49 @@ export function Option({
 }: Props) {
   const [userAnswered, setUserAnswered] = useState(false);
   return (
-    <label
-      className="option"
-      onClick={(event) => {
-        showButtonNext();
-        showButtonPrevious();
-        if (option === questions[currentQuestion].correct_answer) {
-          setScore((score + 1));
-          console.log(score);
-        }
-        // {
-        //   userAnswered &&
-        //   option === questions[currentQuestion].correct_answer ? (
-        //     <div>YAY</div>
-        //   ) : null;
-        // }
-        // {
-        //   userAnswered &&
-        //   option !== questions[currentQuestion].correct_answer ? (
-        //     <div>Nope</div>
-        //   ) : null;
-        // }
-        //@ts-ignore
-        // const rightAnswer = event.target.question.value;
-        // console.log(rightAnswer);
-      }}
-    >
-      <input
-        onClick={(event) => {}}
-        type="radio"
-        name="question"
-        value={option.toLowerCase()}
-      />
-      <span
-        className={
-          option === questions[currentQuestion].correct_answer
-            ? "radio-value right"
-            : "radio-value"
-        }
-        onClick={() => {
-          setUserAnswered(true);
+    <>
+      <label
+        className="option"
+        onClick={(event) => {
+          showButtonNext();
+          showButtonPrevious();
+          if (option === questions[currentQuestion].correct_answer) {
+            setScore(score + 1);
+            console.log(score);
+
+            setUserAnswered(true);
+            // {
+            //   userAnswered &&
+            //   option === questions[currentQuestion].correct_answer
+            //     ? console.log("YESSSS")
+            //     : null;
+            // }
+            // {
+            //   userAnswered &&
+            //   option !== questions[currentQuestion].correct_answer
+            //     ? console.log("Noooo")
+            //     : null;
+            // }
+          }
         }}
       >
-        {option}
-      </span>
-    </label>
+        <input
+          onClick={(event) => {}}
+          type="radio"
+          name="question"
+          value={option.toLowerCase()}
+          required
+        />
+        <span
+          className={
+            option === questions[currentQuestion].correct_answer
+              ? "radio-value right"
+              : "radio-value"
+          }
+        >
+          {option}
+        </span>
+      </label>
+    </>
   );
 }
