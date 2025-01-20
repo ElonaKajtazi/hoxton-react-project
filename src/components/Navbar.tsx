@@ -1,26 +1,21 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
+import { NavBarBtn } from './NavBarBtn';
 
 export function NavBar() {
   return (
-    <header className="header">
-      <div className="header-logo"> Quizz App</div>
+    <header className='header'>
+      <div className='header-logo'> QuizzApp</div>
       <nav>
-        <ul className="nav-list-items">
-          <li>
-            <Link className="link" to="/home">
-              Home
-            </Link>
+        <ul className='nav-list-items'>
+          <li className='link'>
+            <Link to='/home'>Home</Link>
           </li>
-          <li className="link">
-            <Link to="/categories">Categories</Link>
+          <li className='link'>
+            <Link to='/categories'>Categories</Link>
           </li>
         </ul>
       </nav>
-      <div className="rightt">
-        <Link className="" to="/categories">
-          Start quiz
-        </Link>
-      </div>
+      <NavBarBtn />
     </header>
   );
 }

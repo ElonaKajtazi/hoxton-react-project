@@ -1,7 +1,6 @@
-import { QuestionType } from "../App";
+import { QuestionType } from '../App';
 
-type Props = {
-  showPrevioustButton: boolean;
+interface IButtons  {
   currentQuestion: number;
   previousQuestion: () => void;
   showNextButton: boolean;
@@ -11,46 +10,23 @@ type Props = {
 };
 
 export function Buttons({
-  showPrevioustButton,
   currentQuestion,
-  previousQuestion,
   showNextButton,
   questions,
   nextQuestion,
   setFinalScore,
-}: Props) {
+}: IButtons) {
+
+  const handleFinalQuestion = () => {
+    setFinalScore(true)
+  }
+
+  const isLastQuestion = currentQuestion === questions.length - 1
+
   return (
-    <div className="buttons">
-      {/* {showPrevioustButton && currentQuestion > 0 ? (
-        <button
-          className="previous-btn"
-          onClick={() => {
-            previousQuestion();
-          }}
-        >
-          Previous
-        </button>
-      ) : null} */}
-      {showNextButton && currentQuestion + 1 < questions.length ? (
-        <button
-          className="bn632-hover bn25"
-          onClick={() => {
-            nextQuestion();
-          }}
-        >
-          NEXT
-        </button>
-      ) : null}
-      {currentQuestion === 9 ? (
-        <button
-          className="bn632-hover bn25"
-          onClick={() => {
-            setFinalScore(true);
-          }}
-        >
-          SUBMIT
-        </button>
-      ) : null}
+    <div className='buttons'>
+      {showNextButton && !isLastQuestion &&  <button className='bn632-hover bn25' onClick={nextQuestion}>NEXT</button>}
+      {isLastQuestion && <button className='bn632-hover bn25' onClick={handleFinalQuestion}>SUBMIT</button>}
     </div>
   );
 }

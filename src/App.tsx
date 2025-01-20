@@ -1,87 +1,54 @@
-import { useEffect, useState } from "react";
-import { Navigate, Route, Routes, useParams } from "react-router";
-import "./App.css";
-import { FinalScore } from "./components/FinalScore";
-import { Categories } from "./pages/Categories";
-import { Home } from "./pages/Home";
-import { PageNotFound } from "./pages/PageNotFound";
-import { Quiz } from "./pages/Quiz";
+import './App.css';
+import { useEffect, useState } from 'react'
+import { Navigate, Route, Routes, useNavigate } from 'react-router'
+import { FinalScore } from './components/FinalScore'
+import { PageNotFound } from './pages/PageNotFound'
+import { Categories } from './pages/Categories'
+import { Home } from './pages/Home'
+import { Quiz } from './pages/Quiz'
+import { IQuestion } from './interfaces/questions';
 
-// let Question = {
-//   "category": "Entertainment: Video Games",
-//   "type": "multiple",
-//   "difficulty": "medium",
-//   "question": "What is the main character of Metal Gear Solid 2?",
-//   "correct_answer": "Raiden",
-//   "incorrect_answers": [
-//     "Solidus Snake",
-//     "Big Boss",
-//     "Venom Snake"
-//   ]
-// }
-export type QuestionType = {
-  category: string;
-  type: string;
-  difficulty: string;
-  question: string;
-  correct_answer: string;
-  incorrect_answers: string[];
-};
-// export type QuestionType = {
-//   response_code: number;
-//   results: Question[];
-// };
-type Category = {
-  name: string;
-  id: number;
-};
-type CategoriesType = {
-  trivia_categories: Category[];
-};
-function App({}) {
-  const [questions, setQuestions] = useState<QuestionType[]>([]);
 
+function App() {
+  const navigate = useNavigate()
+  const [questions, setQuestions] = useState<IQuestion[]>([]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [category, setCategory] = useState(0);
-  const [difficulty, setDifficulty] = useState("");
+  const [difficulty, setDifficulty] = useState('');
   const [finalScore, setFinalScore] = useState(false);
   const [score, setScore] = useState(0);
-  // const categoryAsNumber = Number(category);
-  // console.log(categoryAsNumber);
 
-  // console.log(Number(category));
-  // const params = useParams();
+
   useEffect(() => {
-    console.log(category);
-    console.log(difficulty);
-    fetch(
-      `https://opentdb.com/api.php?amount=10&category=${category}&difficulty=${difficulty}&type=multiple`
-    )
+    fetch(`https://quizapi.io/api/v1/questions?apiKey=dEubTUYNPvvPmGEIGYwApgEPEEM8Q1omrS4k8cdj&limit=3&category=${category}&difficulty=${difficulty}`)
       .then((res) => res.json())
-      .then((resultsFromServer) => {
-        setQuestions(resultsFromServer.results);
-      });
+      .then((resultsFromServer) => setQuestions(resultsFromServer));
+
   }, [category, difficulty]);
-  {
-    if (questions.length === 0) return <h1>Loading...</h1>;
+
+  const handlleRestartQuiz = () => {
+    setFinalScore(false);
+    setCurrentQuestion(0);
+    setScore(0);
+    setCategory(0);
+    setDifficulty('');
+    navigate('/categories')
   }
 
+  if (questions && questions.length === 0) return <h1>Loading...</h1>
+
   return (
-    <div className="App">
-      {/* <h1>hello &#039;</h1> */}
+    <div className='App'>
       <Routes>
-        <Route index element={<Navigate to="/home" />} />
+        <Route index element={<Navigate to='/home' />} />
         <Route
-          path="quiz"
-          element={
-            finalScore ? (
+          path='quiz'
+          element={finalScore ? (
               <FinalScore
-                setScore={setScore}
-                setCurrentQuestion={setCurrentQuestion}
-                setFinalScore={setFinalScore}
                 score={score}
                 category={category}
                 difficulty={difficulty}
+                restartQuiz={handlleRestartQuiz}
               />
             ) : (
               <Quiz
@@ -91,24 +58,23 @@ function App({}) {
                 questions={questions}
                 currentQuestion={currentQuestion}
                 setCurrentQuestion={setCurrentQuestion}
-                // option={option}
-                // userAnswered={userAnswered}
-                // setDifficulty={setDifficulty}
               />
             )
           }
         />
-        <Route path="home" element={<Home />} />
+        <Route path='home' element={<Home />} />
         <Route
-          path="categories"
+          path='categories'
           element={
             <Categories
               setCategory={setCategory}
               setDifficulty={setDifficulty}
+              category={category}
+              difficulty={difficulty}
             />
           }
         />
-        <Route path="*" element={<PageNotFound />} />
+        <Route path='*' element={<PageNotFound />} />
       </Routes>
     </div>
   );

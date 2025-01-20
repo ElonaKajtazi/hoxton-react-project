@@ -1,34 +1,48 @@
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { CategoriesMain } from "../components/CategoriesMain";
-import { NavBar } from "../components/NavBar";
+import { useEffect, useState } from 'react';
+import { CategoriesMain } from '../components/CategoriesMain';
+import { NavBar } from '../components/NavBar'
+
 export type Category = {
   name: string;
   id: number;
+
 };
-type Props = {
+
+interface ICategories {
   setCategory: React.Dispatch<React.SetStateAction<number>>;
   setDifficulty: React.Dispatch<React.SetStateAction<string>>;
+  category: number;
+  difficulty: string;
 };
-export function Categories({ setCategory, setDifficulty }: Props) {
+
+export function Categories({ 
+  setCategory, 
+  setDifficulty,
+  category, 
+  difficulty 
+}: ICategories) {
+  
   const [categories, setCategories] = useState<Category[]>([]);
 
   useEffect(() => {
-    fetch("https://opentdb.com/api_category.php")
+    fetch("https://quizapi.io/api/v1/categories?apiKey=dEubTUYNPvvPmGEIGYwApgEPEEM8Q1omrS4k8cdj")
       .then((rsp) => rsp.json())
       .then((categoriesFromServer) => {
-        setCategories(categoriesFromServer.trivia_categories);
+        setCategories(categoriesFromServer);
       });
   }, []);
 
   if (categories.length === 0) return <h1>Loading...</h1>;
+
   return (
-    <div className="categories">
+    <div className='categories'>
       <NavBar />
       <CategoriesMain
         setCategory={setCategory}
         categories={categories}
         setDifficulty={setDifficulty}
+        category={category}
+        difficulty={difficulty}
       />
     </div>
   );

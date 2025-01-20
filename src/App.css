@@ -329,3 +329,7 @@ select {
   gap: 1rem;
   text-align: center;
 }
+
+.error {
+  color: rgba(214, 13, 13, 0.715);;
+}

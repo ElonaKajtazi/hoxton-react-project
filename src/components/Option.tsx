@@ -1,7 +1,7 @@
-import { useState } from "react";
-import { QuestionType } from "../App";
+import { useState } from 'react';
+import { QuestionType } from '../App';
 
-type Props = {
+interface IOption  {
   showButtonNext: () => void;
   showButtonPrevious: () => void;
   option: string;
@@ -10,6 +10,7 @@ type Props = {
   setScore: React.Dispatch<React.SetStateAction<number>>;
   score: number;
 };
+
 export function Option({
   showButtonNext,
   showButtonPrevious,
@@ -18,51 +19,44 @@ export function Option({
   currentQuestion,
   setScore,
   score,
-}: Props) {
+}: IOption) {
   const [userAnswered, setUserAnswered] = useState(false);
-  return (
-    <>
-      <label
-        className="option"
-        onClick={(event) => {
-          showButtonNext();
-          showButtonPrevious();
-          if (option === questions[currentQuestion].correct_answer) {
-            setScore(score + 1);
-            console.log(score);
 
-            setUserAnswered(true);
-            // {
-            //   userAnswered &&
-            //   option === questions[currentQuestion].correct_answer
-            //     ? console.log("YESSSS")
-            //     : null;
-            // }
-            // {
-            //   userAnswered &&
-            //   option !== questions[currentQuestion].correct_answer
-            //     ? console.log("Noooo")
-            //     : null;
-            // }
-          }
-        }}
-      >
+  function getKeyByValue(object: any, value: string) {
+    return Object.keys(object).find(key => object[key] === value);
+  }
+  
+  let correctAnswer: any
+  if (questions[currentQuestion].correct_answer) {
+    correctAnswer =  Object.keys(questions[currentQuestion].answers).filter((key) => key === questions[currentQuestion].correct_answer).join(' ')
+  } else {
+    let findCorrectAnswer = Object.keys(questions[currentQuestion].correct_answers).find((key) => questions[currentQuestion].correct_answers[key] === 'true')
+    correctAnswer = findCorrectAnswer
+  }
+  
+  const correctAnswerKey = option && getKeyByValue(questions[currentQuestion].answers, option)
+  const isCorrectAnswer = correctAnswerKey && correctAnswer && correctAnswer.includes(correctAnswerKey)
+
+  const handleChooseAnswer = () => {
+    showButtonNext();
+    showButtonPrevious();    
+
+    if(isCorrectAnswer) {
+      setScore(score + 1);
+      setUserAnswered(true);
+    }
+  }
+
+  return (
+     <>
+      <label className='option' onClick={handleChooseAnswer}>
         <input
-          onClick={(event) => {}}
-          type="radio"
-          name="question"
+          type='radio'
+          name='question'
           value={option.toLowerCase()}
           required
         />
-        <span
-          className={
-            option === questions[currentQuestion].correct_answer
-              ? "radio-value right"
-              : "radio-value"
-          }
-        >
-          {option}
-        </span>
+        <span className={ isCorrectAnswer ? 'radio-value right' : 'radio-value' }>{option}</span>
       </label>
     </>
   );

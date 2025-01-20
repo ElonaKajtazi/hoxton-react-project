@@ -1,6 +1,6 @@
 export function CategoriesText() {
   return (
-    <p className="text">
+    <p className='text'>
       Choose a category in which to play the Trivia Quiz from General Knowledge,
       Dictionary, Entertainment, History, Food + Drink, Geography and Science +
       Nature. Answer 10 multiple-choice quiz questions as quickly and as

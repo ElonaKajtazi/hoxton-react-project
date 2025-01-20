@@ -1,72 +1,48 @@
-import { Link } from "react-router-dom";
-type Props = {
+import { useEffect, useState } from 'react';
+
+interface IFinalScore {
   score: number;
   category: number;
   difficulty: string;
-  setFinalScore: React.Dispatch<React.SetStateAction<boolean>>;
-  setCurrentQuestion: React.Dispatch<React.SetStateAction<number>>;
-  setScore: React.Dispatch<React.SetStateAction<number>>;
+  restartQuiz: () => void;
 };
+
 export function FinalScore({
   score,
   category,
   difficulty,
-  setFinalScore,
-  setCurrentQuestion,
-  setScore,
-}: Props) {
+  restartQuiz
+}: IFinalScore) {
+
+  const [categories, setCategories] = useState([]);
   let score1 = score / 2;
+
+  useEffect(() => {
+    fetch('https://quizapi.io/api/v1/categories?apiKey=dEubTUYNPvvPmGEIGYwApgEPEEM8Q1omrS4k8cdj')
+      .then((rsp) => rsp.json())
+      .then((categoriesFromServer) => {
+        setCategories(categoriesFromServer);
+      });
+  }, []);
+
+  const findChoosenCategory = categories.length !== 0 &&  categories.find((cat) => cat.name === category);
+
   return (
-    <div className="quiz score">
-      <h2>
-        Category:
-        {category === 9 ? " General Knowledge" : null}
-        {category === 10 ? " Entertainment: Books" : null}
-        {category === 11 ? " Entertainment: Film" : null}
-        {category === 12 ? " Entertainment: Music" : null}
-        {category === 13 ? " Entertainment: Musicals & Theatres" : null}
-        {category === 14 ? " Entertainment: Television" : null}
-        {category === 15 ? " Entertainment: Video Games" : null}
-        {category === 16 ? " Entertainment: Board Games" : null}
-        {category === 17 ? " Science & Nature" : null}
-        {category === 18 ? " Science: Computers" : null}
-        {category === 19 ? " Science: Mathematics" : null}
-        {category === 20 ? " Mythology" : null}
-        {category === 21 ? " Sports" : null}
-        {category === 22 ? " Geography" : null}
-        {category === 23 ? " History" : null}
-        {category === 24 ? " Politics" : null}
-        {category === 25 ? " Art" : null}
-        {category === 26 ? " Celebrities" : null}
-        {category === 27 ? " Animals" : null}
-        {category === 28 ? " Vehicles" : null}
-        {category === 29 ? " Entertainment: Comics" : null}
-        {category === 30 ? " Science: Gadgets" : null}
-        {category === 31 ? " Entertainment: Japanese Anime & Manga" : null}
-        {category === 32 ? " Entertainment: Cartoon & Animations" : null}
-      </h2>
-      <h2>
-        Difficulty:
-        {difficulty === "easy" ? " Easy" : null}
-        {difficulty === "medium" ? " Medium" : null}
-        {difficulty === "hard" ? " Hard" : null}
-      </h2>
-      <h2>
-        Score: {score1} out of 10 - ({(score1 / 10) * 100 + "%"})
-      </h2>
-      <Link to="/categories">
-        {" "}
-        <button
-          className="button"
-          onClick={() => {
-            setFinalScore(false);
-            setCurrentQuestion(0);
-            setScore(0);
-          }}
-        >
-          Take another quiz
-        </button>
-      </Link>
+    <div className='quiz score'>
+      { findChoosenCategory &&  <h2> Category: {findChoosenCategory?.name} </h2> }
+      {
+        difficulty !== '' && 
+        <h2>
+          Difficulty:
+          { difficulty === 'easy' && ' Easy' }
+          { difficulty === 'medium' && ' Medium' }
+          { difficulty === 'hard' && ' Hard' }
+        </h2>
+      }
+      <h2> Score: {score1} out of 10 - ({(score1 / 10) * 100 + "%"}) </h2>
+      <div>
+        <button className='button' onClick={restartQuiz}>Take another quiz</button>
+      </div>
     </div>
   );
 }
